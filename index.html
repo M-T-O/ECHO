@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YANKI (ECHO): 2045'e 5 Dakika — Sosyal Farkındalık Simülatörü</title>
+  <meta name="description" content="Gündelik alışkanlıklarımızın 2045 yılındaki ekolojik ve toplumsal yankısını simüle eden interaktif karar oyunu.">
+  <meta property="og:title" content="YANKI: 2045'e 5 Dakika">
+  <meta property="og:description" content="Gündelik alışkanlıklarımızın 2045 yılındaki ekolojik ve toplumsal yankısını simüle eden interaktif karar oyunu.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+
+  <!-- BACKGROUND SVG SCENE STAGE (100% Code-Based Vector Art) -->
+  <div id="stage-visuals" class="stage-container" aria-hidden="true">
+    
+    <!-- 0. INTRO SCENE SVG -->
+    <div id="svg-intro" class="svg-scene-container active">
+      <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" class="scene-svg">
+        <defs>
+          <radialGradient id="intro-glow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#143147" stop-opacity="0.8"/>
+            <stop offset="60%" stop-color="#0a121e" stop-opacity="0.95"/>
+            <stop offset="100%" stop-color="#04070c" stop-opacity="1"/>
+          </radialGradient>
+        </defs>
+        <rect width="1200" height="800" fill="url(#intro-glow)"/>
+        
+        <!-- Subtle Coordinates Grid -->
+        <g opacity="0.14">
+          <line x1="0" y1="200" x2="1200" y2="200" stroke="#00f0ff" stroke-width="1" stroke-dasharray="4,8"/>
+          <line x1="0" y1="400" x2="1200" y2="400" stroke="#00f0ff" stroke-width="1" stroke-dasharray="4,8"/>
+          <line x1="0" y1="600" x2="1200" y2="600" stroke="#00f0ff" stroke-width="1" stroke-dasharray="4,8"/>
+          <line x1="300" y1="0" x2="300" y2="800" stroke="#00f0ff" stroke-width="1" stroke-dasharray="4,8"/>
+          <line x1="600" y1="0" x2="600" y2="800" stroke="#00f0ff" stroke-width="1" stroke-dasharray="4,8"/>
+          <line x1="900" y1="0" x2="900" y2="800" stroke="#00f0ff" stroke-width="1" stroke-dasharray="4,8"/>
+        </g>
+
+        <!-- Time Capsule Planetary Rings -->
+        <g transform="translate(600, 400)">
+          <circle r="180" fill="none" stroke="#00f0ff" stroke-width="1.5" stroke-opacity="0.4" class="anim-spin-slow"/>
+          <circle r="230" fill="none" stroke="#38ef7d" stroke-width="1" stroke-opacity="0.25" stroke-dasharray="6,12" class="anim-spin-reverse"/>
+          <ellipse rx="180" ry="60" fill="none" stroke="#00f0ff" stroke-width="1" stroke-opacity="0.3" transform="rotate(-25)"/>
+          <ellipse rx="180" ry="60" fill="none" stroke="#00f0ff" stroke-width="1" stroke-opacity="0.3" transform="rotate(65)"/>
+          <circle r="6" fill="#00f0ff" class="anim-pulse"/>
+          <circle r="80" fill="none" stroke="#ffffff" stroke-width="1" stroke-opacity="0.1"/>
+          <circle r="130" fill="none" stroke="#ffffff" stroke-width="1" stroke-opacity="0.08"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- 1. MORNING SCENE SVG (07:00 - Sunrise, modern city skyline, traffic) -->
+    <div id="svg-morning" class="svg-scene-container">
+      <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" class="scene-svg">
+        <defs>
+          <linearGradient id="morning-sky" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#1a1c2e"/>
+            <stop offset="50%" stop-color="#2d3250"/>
+            <stop offset="85%" stop-color="#f8b500"/>
+            <stop offset="100%" stop-color="#ff6e40"/>
+          </linearGradient>
+          <linearGradient id="sun-glow" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#fff275" stop-opacity="0.9"/>
+            <stop offset="100%" stop-color="#ff7b54" stop-opacity="0.1"/>
+          </linearGradient>
+        </defs>
+        <rect width="1200" height="800" fill="url(#morning-sky)"/>
+        
+        <circle cx="600" cy="480" r="130" fill="url(#sun-glow)" class="anim-pulse"/>
+
+        <!-- Far Skyline -->
+        <g fill="#16192b" opacity="0.8">
+          <rect x="100" y="320" width="60" height="400"/>
+          <polygon points="100,320 130,280 160,320"/>
+          <rect x="190" y="360" width="80" height="360"/>
+          <rect x="300" y="270" width="70" height="450"/>
+          <line x1="335" y1="270" x2="335" y2="230" stroke="#16192b" stroke-width="3"/>
+          <rect x="400" y="380" width="100" height="340"/>
+          <rect x="720" y="310" width="90" height="410"/>
+          <rect x="840" y="250" width="75" height="470"/>
+          <polygon points="840,250 877,200 915,250"/>
+          <rect x="940" y="350" width="60" height="370"/>
+          <rect x="1030" y="330" width="85" height="390"/>
+        </g>
+
+        <!-- Near Skyline with Windows -->
+        <g fill="#0c0e17">
+          <rect x="40" y="420" width="110" height="380"/>
+          <rect x="180" y="350" width="95" height="450"/>
+          <rect x="195" y="380" width="8" height="12" fill="#ffd166" opacity="0.7"/>
+          <rect x="220" y="380" width="8" height="12" fill="#ffd166" opacity="0.9"/>
+          <rect x="245" y="420" width="8" height="12" fill="#ffd166" opacity="0.8"/>
+          <rect x="310" y="430" width="130" height="370"/>
+          <rect x="480" y="390" width="110" height="410"/>
+          <rect x="620" y="410" width="100" height="390"/>
+          <rect x="750" y="330" width="120" height="470"/>
+          <line x1="810" y1="330" x2="810" y2="270" stroke="#0c0e17" stroke-width="4"/>
+          <circle cx="810" cy="270" r="4" fill="#ff4757" class="anim-blink"/>
+          <rect x="900" y="440" width="110" height="360"/>
+          <rect x="1040" y="370" width="120" height="430"/>
+        </g>
+
+        <rect x="0" y="680" width="1200" height="120" fill="#08090f"/>
+        <line x1="0" y1="740" x2="1200" y2="740" stroke="#ffd166" stroke-width="3" stroke-dasharray="30,30" opacity="0.4"/>
+        
+        <!-- Moving Vehicle -->
+        <g transform="translate(320, 695)" class="anim-car-move">
+          <rect x="0" y="15" width="80" height="25" rx="5" fill="#f8b500"/>
+          <polygon points="15,15 25,2 55,2 65,15" fill="#222"/>
+          <rect x="35" y="-4" width="12" height="6" fill="#fff" stroke="#222" stroke-width="1"/>
+          <circle cx="18" cy="40" r="8" fill="#111"/>
+          <circle cx="62" cy="40" r="8" fill="#111"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- 2. AFTERNOON SCENE SVG (Commercial District & Couriers) -->
+    <div id="svg-afternoon" class="svg-scene-container">
+      <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" class="scene-svg">
+        <defs>
+          <linearGradient id="afternoon-sky" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#0f2027"/>
+            <stop offset="60%" stop-color="#203a43"/>
+            <stop offset="100%" stop-color="#2c5364"/>
+          </linearGradient>
+        </defs>
+        <rect width="1200" height="800" fill="url(#afternoon-sky)"/>
+        
+        <g fill="#111822">
+          <rect x="80" y="150" width="220" height="650"/>
+          <rect x="340" y="220" width="260" height="580"/>
+          <rect x="640" y="120" width="240" height="680"/>
+          <rect x="920" y="180" width="200" height="620"/>
+        </g>
+
+        <!-- Glitch Billboard -->
+        <g transform="translate(370, 260)">
+          <rect width="200" height="100" fill="#050505" stroke="#ff007f" stroke-width="3"/>
+          <text x="100" y="45" fill="#ff007f" font-family="'JetBrains Mono', monospace" font-size="16" font-weight="700" text-anchor="middle">⚡ SON 2 ADET!</text>
+          <text x="100" y="75" fill="#00f0ff" font-family="'Space Grotesk', sans-serif" font-size="14" text-anchor="middle">AYNI GÜN 3 SAATTE</text>
+        </g>
+
+        <!-- Repair Workshop Sign -->
+        <g transform="translate(680, 480)">
+          <rect width="160" height="50" fill="#1b2a26" stroke="#38ef7d" stroke-width="2"/>
+          <text x="80" y="32" fill="#38ef7d" font-family="'Space Grotesk', sans-serif" font-size="13" font-weight="600" text-anchor="middle">✂ ONARIM & ATÖLYE</text>
+        </g>
+
+        <!-- Courier Motorbike -->
+        <g transform="translate(520, 680)" class="anim-courier">
+          <polygon points="10,20 30,5 50,5 60,20" fill="#ff4757"/>
+          <circle cx="15" cy="30" r="10" fill="#111"/>
+          <circle cx="55" cy="30" r="10" fill="#111"/>
+          <rect x="2" y="-2" width="24" height="22" fill="#ffd32a" stroke="#333" stroke-width="1"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- 3. NIGHT SCENE SVG (Night City & Pylons) -->
+    <div id="svg-night" class="svg-scene-container">
+      <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" class="scene-svg">
+        <defs>
+          <linearGradient id="night-sky" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#050811"/>
+            <stop offset="70%" stop-color="#0c1427"/>
+            <stop offset="100%" stop-color="#141c30"/>
+          </linearGradient>
+        </defs>
+        <rect width="1200" height="800" fill="url(#night-sky)"/>
+        
+        <!-- Crescent Moon -->
+        <g transform="translate(950, 120)">
+          <path d="M40 0 A 30 30 0 1 0 70 50 A 25 25 0 1 1 40 0 Z" fill="#e0e6ed" opacity="0.9"/>
+        </g>
+
+        <g fill="#090d16">
+          <rect x="120" y="260" width="300" height="540"/>
+          <rect x="460" y="200" width="320" height="600"/>
+          <rect x="820" y="310" width="280" height="490"/>
+        </g>
+
+        <!-- Glowing AC room -->
+        <g transform="translate(500, 280)">
+          <rect width="90" height="60" fill="#00f0ff" opacity="0.85"/>
+          <rect x="95" y="30" width="45" height="30" fill="#2d3436" stroke="#00f0ff" stroke-width="1"/>
+          <circle cx="117" cy="45" r="10" fill="none" stroke="#00f0ff" stroke-width="2" class="anim-fan-fast"/>
+        </g>
+
+        <!-- Power Transmission Pylon -->
+        <g transform="translate(180, 460)" stroke="#3d4960" stroke-width="2" fill="none">
+          <line x1="50" y1="0" x2="20" y2="180"/>
+          <line x1="50" y1="0" x2="80" y2="180"/>
+          <line x1="10" y1="40" x2="90" y2="40"/>
+          <line x1="20" y1="90" x2="80" y2="90"/>
+          <circle cx="10" cy="40" r="3" fill="#00f0ff" class="anim-blink"/>
+          <circle cx="90" cy="40" r="3" fill="#00f0ff" class="anim-blink"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- 4. TIME LEAP SVG -->
+    <div id="svg-timeleap" class="svg-scene-container">
+      <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" class="scene-svg">
+        <rect width="1200" height="800" fill="#080911"/>
+        <g stroke="#ffffff" stroke-width="3" fill="none" opacity="0.6">
+          <path d="M 120 180 L 120 120 L 180 120"/>
+          <path d="M 1020 120 L 1080 120 L 1080 180"/>
+          <path d="M 120 620 L 120 680 L 180 680"/>
+          <path d="M 1020 680 L 1080 680 L 1080 620"/>
+          <circle cx="600" cy="400" r="40" stroke="#00f0ff" stroke-width="2" stroke-dasharray="6,6"/>
+          <line x1="580" y1="400" x2="620" y2="400" stroke="#00f0ff" stroke-width="2"/>
+          <line x1="600" y1="380" x2="600" y2="420" stroke="#00f0ff" stroke-width="2"/>
+        </g>
+        <line x1="0" y1="280" x2="1200" y2="280" stroke="#ff0055" stroke-width="2" opacity="0.5" class="anim-scanline"/>
+      </svg>
+    </div>
+
+    <!-- 5. ENDING A SVG: PLASTİK ŞAFAK -->
+    <div id="svg-ending-a" class="svg-scene-container">
+      <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" class="scene-svg">
+        <defs>
+          <linearGradient id="toxic-sky" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#2c1802"/>
+            <stop offset="50%" stop-color="#5a3805"/>
+            <stop offset="85%" stop-color="#b06d12"/>
+            <stop offset="100%" stop-color="#e67e22"/>
+          </linearGradient>
+        </defs>
+        <rect width="1200" height="800" fill="url(#toxic-sky)"/>
+        <g fill="#1a1105">
+          <polygon points="180,750 200,320 250,320 270,750"/>
+          <polygon points="280,750 295,260 340,260 355,750"/>
+          <polygon points="850,750 865,290 910,290 925,750"/>
+          <polygon points="940,750 955,340 995,340 1010,750"/>
+        </g>
+        <g fill="#2b1a0a" opacity="0.75" class="anim-smoke">
+          <circle cx="225" cy="270" r="45"/>
+          <circle cx="260" cy="230" r="60"/>
+          <circle cx="890" cy="240" r="55"/>
+        </g>
+        <g transform="translate(680, 520)" fill="#0f0a03">
+          <ellipse cx="40" cy="35" rx="14" ry="18"/>
+          <rect x="44" y="32" width="14" height="12" rx="3" fill="#ff793f"/>
+          <path d="M 26 55 C 20 90, 15 150, 15 220 L 65 220 C 65 150, 60 90, 54 55 Z"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- 6. ENDING B SVG: TEKNO-AYRIŞMA (Bio-Dome) -->
+    <div id="svg-ending-b" class="svg-scene-container">
+      <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" class="scene-svg">
+        <defs>
+          <linearGradient id="desert-sky" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#190e29"/>
+            <stop offset="60%" stop-color="#3d1e47"/>
+            <stop offset="100%" stop-color="#843b62"/>
+          </linearGradient>
+          <radialGradient id="dome-light" cx="50%" cy="80%" r="60%">
+            <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.5"/>
+            <stop offset="70%" stop-color="#7000ff" stop-opacity="0.2"/>
+            <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <rect width="1200" height="800" fill="url(#desert-sky)"/>
+        <path d="M 0 680 Q 300 620, 600 690 T 1200 660 L 1200 800 L 0 800 Z" fill="#2d152a"/>
+        <g transform="translate(600, 700)">
+          <path d="M -320 0 A 320 320 0 0 1 320 0 Z" fill="url(#dome-light)"/>
+          <path d="M -320 0 A 320 320 0 0 1 320 0 Z" fill="none" stroke="#00f0ff" stroke-width="3" opacity="0.8"/>
+          <g fill="#0b1b2b" stroke="#00f0ff" stroke-width="0.5">
+            <rect x="-180" y="-190" width="45" height="190"/>
+            <rect x="-110" y="-260" width="55" height="260"/>
+            <rect x="-30" y="-290" width="60" height="290"/>
+            <rect x="50" y="-230" width="50" height="230"/>
+          </g>
+        </g>
+      </svg>
+    </div>
+
+    <!-- 7. ENDING C SVG: SİMBİYOZ & ONARIM (Vertical Forest) -->
+    <div id="svg-ending-c" class="svg-scene-container">
+      <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" class="scene-svg">
+        <defs>
+          <linearGradient id="utopia-sky" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#0b3b43"/>
+            <stop offset="40%" stop-color="#146059"/>
+            <stop offset="80%" stop-color="#38ef7d"/>
+            <stop offset="100%" stop-color="#a8ff78"/>
+          </linearGradient>
+        </defs>
+        <rect width="1200" height="800" fill="url(#utopia-sky)"/>
+        <g fill="none" stroke="#ffffff" stroke-width="2" opacity="0.85">
+          <path d="M 240 180 Q 248 170, 256 180 Q 264 170, 272 180"/>
+          <path d="M 280 150 Q 288 140, 296 150 Q 304 140, 312 150"/>
+        </g>
+        <g fill="#0b241d">
+          <rect x="140" y="260" width="130" height="490"/>
+          <rect x="330" y="180" width="150" height="570"/>
+          <rect x="740" y="220" width="140" height="530"/>
+        </g>
+        <g fill="#2ed573">
+          <circle cx="140" cy="300" r="16"/>
+          <circle cx="270" cy="340" r="18"/>
+          <circle cx="360" cy="170" r="24"/>
+          <circle cx="410" cy="155" r="30"/>
+          <circle cx="770" cy="205" r="26"/>
+        </g>
+        <rect x="0" y="700" width="1200" height="100" fill="#00cec9"/>
+      </svg>
+    </div>
+
+    <!-- 8. ENDING E SVG: DİJİTAL İNZİVA (Cyber Cold Grid) -->
+    <div id="svg-ending-e" class="svg-scene-container">
+      <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" class="scene-svg">
+        <defs>
+          <linearGradient id="cyber-sky" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#070314"/>
+            <stop offset="60%" stop-color="#190a36"/>
+            <stop offset="100%" stop-color="#2b1055"/>
+          </linearGradient>
+        </defs>
+        <rect width="1200" height="800" fill="url(#cyber-sky)"/>
+        <!-- Cyber Neon Towers -->
+        <g fill="#0e0720" stroke="#c084fc" stroke-width="1" opacity="0.8">
+          <rect x="100" y="240" width="150" height="560"/>
+          <rect x="300" y="180" width="180" height="620"/>
+          <rect x="540" y="280" width="160" height="520"/>
+          <rect x="760" y="150" width="170" height="650"/>
+          <rect x="980" y="260" width="140" height="540"/>
+        </g>
+        <!-- Virtual Light Pillars -->
+        <g stroke="#c084fc" stroke-width="2" opacity="0.6">
+          <line x1="390" y1="180" x2="390" y2="0" stroke-dasharray="10,10"/>
+          <line x1="845" y1="150" x2="845" y2="0" stroke-dasharray="10,10"/>
+        </g>
+        <rect x="0" y="720" width="1200" height="80" fill="#070314"/>
+        <!-- Glowing Grid lines on floor -->
+        <g stroke="#c084fc" stroke-width="1.5" opacity="0.4">
+          <line x1="0" y1="750" x2="1200" y2="750"/>
+          <line x1="0" y1="780" x2="1200" y2="780"/>
+          <line x1="200" y1="720" x2="100" y2="800"/>
+          <line x1="600" y1="720" x2="600" y2="800"/>
+          <line x1="1000" y1="720" x2="1100" y2="800"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- 9. ENDING D SVG: KIRILGAN ARAF -->
+    <div id="svg-ending-d" class="svg-scene-container">
+      <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" class="scene-svg">
+        <defs>
+          <linearGradient id="limbo-sky" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#1e272e"/>
+            <stop offset="50%" stop-color="#485460"/>
+            <stop offset="100%" stop-color="#808e9b"/>
+          </linearGradient>
+        </defs>
+        <rect width="1200" height="800" fill="url(#limbo-sky)"/>
+        <circle cx="600" cy="260" r="60" fill="#d2dae2" opacity="0.3"/>
+        <g fill="#2c3e50">
+          <rect x="180" y="320" width="120" height="480"/>
+          <rect x="360" y="270" width="140" height="530"/>
+          <rect x="700" y="300" width="130" height="500"/>
+        </g>
+        <g transform="translate(560, 380)" stroke="#111" stroke-width="3" fill="none">
+          <line x1="40" y1="0" x2="15" y2="280"/>
+          <line x1="40" y1="0" x2="65" y2="280"/>
+          <circle cx="40" cy="0" r="7" fill="#ffa801" class="anim-blink"/>
+        </g>
+        <rect x="0" y="720" width="1200" height="80" fill="#1e272e"/>
+      </svg>
+    </div>
+
+  </div>
+
+  <!-- HUD & STATUS OVERLAY -->
+  <header id="main-hud" class="hud-overlay">
+    <div class="hud-top-bar">
+      <div class="hud-brand">
+        <span class="hud-logo-icon">◈</span>
+        <span class="hud-title">YANKI: 2045'E 5 DAKİKA</span>
+      </div>
+
+      <div class="hud-status-group">
+        <div id="hud-seed-pill" class="hud-pill hud-pill-seed" title="Mevcut Oyun Gün Tohumu">
+          <span class="pill-label">TOHUM:</span>
+          <span id="hud-seed-val" class="pill-val">#YANKI-8421</span>
+        </div>
+        <div id="hud-persona-pill" class="hud-pill hud-pill-persona">
+          <span class="pill-label">PERSPEKTİF:</span>
+          <span id="hud-persona" class="pill-val">KENTLİ ÇALIŞAN</span>
+        </div>
+        <div class="hud-pill">
+          <span class="pill-label">ZAMAN:</span>
+          <span id="hud-time" class="pill-val">2026.03.15 // 07:00</span>
+        </div>
+        <div class="hud-pill">
+          <span class="pill-label">STATÜ:</span>
+          <span id="hud-status" class="pill-val">BAŞLANGIÇ BEKLENİYOR</span>
+        </div>
+        
+        <button id="btn-open-achievements" class="btn-hud-icon" title="Açılan Başarımlar">
+          🏆 Başarımlar: <span id="hud-achievements-count">0/10</span>
+        </button>
+
+        <button id="btn-open-dossier" class="btn-hud-icon" title="Akademik Kaynakça & Proje Künyesi (10 Hakemli Araştırma)">
+          📖 Kaynakça & Künye
+        </button>
+
+        <button id="btn-sound-toggle" class="btn-hud-icon" title="Sesi Aç/Kapat" aria-label="Sesi Aç/Kapat">
+          🔊 Ses: Açık
+        </button>
+      </div>
+    </div>
+  </header>
+
+
+
+  <!-- MAIN INTERACTIVE APP CONTAINER -->
+  <main id="app-container" class="app-main">
+
+    <!-- SCREEN 1: INTRO / START -->
+    <section id="screen-intro" class="screen-view active">
+      <div class="intro-dialog-box glass-panel">
+        <div class="intro-badge">SOSYAL FARKINDALIK SİMÜLATÖRÜ</div>
+        <h1 class="intro-headline">YANKI: 2045'E 5 DAKİKA</h1>
+        <p class="intro-tagline">"Gelecek uzak bir felaket değil; bugün attığın adımların 2045'teki yankısıdır."</p>
+
+        <div class="intro-lore">
+          <p>
+            Sabah aceleyle aldığın karton kahve bardağı... Tek tıkla sipariş ettiğin aynı gün teslimatlı hızlı kargo...
+            Gece sonuna kadar açtığın bir klima veya komşunla paylaştığın sıcak bir selam...
+          </p>
+          <p>
+            Küçük ve masum görünen gündelik tercihlerinin 2035 kentsel kırılma eşiğini ve 2045 yılındaki gezegen kaderini nasıl mühürleyeceğini deneyimleyin.
+          </p>
+        </div>
+
+        <!-- 3-PERSONA SELECTOR TABS -->
+        <div class="persona-selector-container">
+          <div class="selector-heading">1. OYNANACAK PERSPEKTİFİ SEÇİN:</div>
+          <div id="persona-cards-container" class="persona-cards-grid">
+            <!-- Dynamically populated persona cards -->
+          </div>
+        </div>
+
+        <!-- SEED & PERSONA CONTROL PANEL -->
+        <div class="seed-control-panel glass-panel-subtle">
+          <div class="seed-info-group">
+            <span class="seed-icon">🎲</span>
+            <div class="seed-texts">
+              <span class="seed-label">GÜN TOHUMU (DETERMINISTIC SEED):</span>
+              <span id="seed-code-val" class="seed-code">#YANKI-8421</span>
+            </div>
+          </div>
+          <div class="seed-actions">
+            <button id="btn-reroll-seed" class="btn-subtle" title="Yeni Gün Tohumu Zarı At">
+              🎲 Yeni Gün Zarı At
+            </button>
+            <button id="btn-custom-seed" class="btn-subtle" title="Özel Tohum Kodu Gir">
+              ✎ Tohum Gir
+            </button>
+          </div>
+        </div>
+
+        <div class="intro-action-zone">
+          <button id="btn-start-game" class="btn-prime">
+            <span class="btn-text">ZAMAN KAPSÜLÜNÜ BAŞLAT ➔</span>
+          </button>
+          <div class="intro-hint">Klavye Kısayolları: Seçimler için [1] ve [2] tuşlarını kullanabilirsiniz.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 2: GAMEPLAY SCENE (Decision Point) -->
+    <section id="screen-game" class="screen-view">
+      <div class="scene-dialog-card glass-panel">
+        <div class="scene-header">
+          <span id="scene-act-tag" class="scene-step-tag">ACT 1 // 07:15</span>
+          <h2 id="scene-title" class="scene-title-text">Sabah Telaşı: Güne Başlarken</h2>
+        </div>
+
+        <p id="scene-narration" class="scene-narrative-text">
+          Alarm çaldı. Toplantıya sadece 25 dakika var. Şehir puslu bir sabah serinliğine gömülü...
+        </p>
+
+        <!-- Dual Choice Cards -->
+        <div class="choices-container">
+          <button id="btn-choice-a" class="choice-card choice-a">
+            <div class="choice-key-badge">[1] / [A]</div>
+            <div class="choice-body">
+              <h3 id="choice-title-a" class="choice-title">Hızlı Çözüm</h3>
+              <p id="choice-desc-a" class="choice-desc">Açıklama</p>
+            </div>
+          </button>
+
+          <button id="btn-choice-b" class="choice-card choice-b">
+            <div class="choice-key-badge">[2] / [B]</div>
+            <div class="choice-body">
+              <h3 id="choice-title-b" class="choice-title">Bilinçli Adım</h3>
+              <p id="choice-desc-b" class="choice-desc">Açıklama</p>
+            </div>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 3: TIME LEAP (We Become What We Behold Snapshot Montage) -->
+    <section id="screen-timeleap" class="screen-view">
+      <div class="timeleap-overlay">
+        <div class="timeleap-counter-box">
+          <span class="counter-label">ZAMAN SIÇRAMASI:</span>
+          <span id="timeleap-counter" class="counter-number">2026</span>
+        </div>
+
+        <div id="timeleap-cards" class="timeleap-cards-deck">
+          <!-- Dynamically populated snapshot newspaper cards -->
+        </div>
+
+        <div class="timeleap-controls">
+          <button id="btn-proceed-2045" class="btn-prime">
+            <span class="btn-text">2045 NİHAİ DÜNYASINA ADIM AT ➔</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 4: 2045 ENDING & EPILOGUE -->
+    <section id="screen-ending" class="screen-view">
+      <div class="ending-modal-card glass-panel">
+        <div id="ending-badge" class="ending-badge badge-danger">DİSTOPİK ÇÖKÜŞ</div>
+        <h2 id="ending-title" class="ending-title-text">PLASTİK ŞAFAK</h2>
+        <div id="ending-quote" class="ending-quote-text">"Konfor arayışımızın bedelini ciğerlerimizle ödüyoruz."</div>
+
+        <div class="ending-body-content">
+          <p id="ending-desc" class="ending-description">
+            Yıl 2045. Şehir artık nefes alınamaz bir sera...
+          </p>
+
+          <div id="ending-advice" class="ending-advice-box">
+            💡 Gelecek Notu: Bir dahaki sefere atıkları kaynağında durdurmayı dene.
+          </div>
+
+          <!-- 2045 FINAL LIFE & PLANET METRICS BALANCE SHEET -->
+          <div class="ending-metrics-card">
+            <div class="ending-metrics-header">
+              <span class="metrics-badge">2045 NİHAİ YAŞAM VE GEZEGEN BİLANÇOSU</span>
+              <span class="metrics-sub">2026'daki gündelik mikro kararlarının 2045 yılındaki somut ekolojik faturası</span>
+            </div>
+
+            <!-- Percentage Indicators -->
+            <div class="ending-metrics-grid">
+              <!-- Metric 1: Eco Score -->
+              <div class="ending-metric-box">
+                <div class="metric-top-row">
+                  <span class="metric-name">🌿 EKOLOJİK BAKİYE</span>
+                  <span id="final-eco-val" class="metric-num">50%</span>
+                </div>
+                <div class="metric-bar-track">
+                  <div id="final-eco-bar" class="metric-bar-fill eco-fill" style="width: 50%;"></div>
+                </div>
+                <div id="final-eco-status" class="metric-verdict">Hesaplanıyor...</div>
+              </div>
+
+              <!-- Metric 2: Social Empathy -->
+              <div class="ending-metric-box">
+                <div class="metric-top-row">
+                  <span class="metric-name">🤝 KOLEKTİF EMPATİ</span>
+                  <span id="final-social-val" class="metric-num">50%</span>
+                </div>
+                <div class="metric-bar-track">
+                  <div id="final-social-bar" class="metric-bar-fill social-fill" style="width: 50%;"></div>
+                </div>
+                <div id="final-social-status" class="metric-verdict">Hesaplanıyor...</div>
+              </div>
+
+              <!-- Metric 3: Comfort Addiction -->
+              <div class="ending-metric-box">
+                <div class="metric-top-row">
+                  <span class="metric-name">⚡ KONFOR BAĞIMLILIĞI</span>
+                  <span id="final-comfort-val" class="metric-num">50%</span>
+                </div>
+                <div class="metric-bar-track">
+                  <div id="final-comfort-bar" class="metric-bar-fill comfort-fill" style="width: 50%;"></div>
+                </div>
+                <div id="final-comfort-status" class="metric-verdict">Hesaplanıyor...</div>
+              </div>
+            </div>
+
+            <!-- CONCRETE PHYSICAL FOOTPRINT (Empirical 10-Study Calculations) -->
+            <div class="footprint-metrics-container">
+              <div class="footprint-header">
+                <span class="footprint-badge">🔬 BİLİMSEL TÜKETİM & ÇEVRESEL AYAK İZİ FATURASI</span>
+                <span class="footprint-sub">10 Hakemli Araştırma Çarpanlarıyla Modellenmiş Yıllık Kümülatif Etki</span>
+              </div>
+              <div class="footprint-grid">
+                <div class="footprint-box">
+                  <div class="footprint-top">
+                    <span class="footprint-icon">💨</span>
+                    <span class="footprint-label">KARBON EMİSYON YÜKÜ</span>
+                  </div>
+                  <span id="footprint-co2-val" class="footprint-val">+0.0 kg CO₂-e</span>
+                  <span class="footprint-ref">Demirtürk (2021) // Karayolu Ulaşımı</span>
+                </div>
+                <div class="footprint-box">
+                  <div class="footprint-top">
+                    <span class="footprint-icon">🥤</span>
+                    <span class="footprint-label">KATI & MİKROPLASTİK</span>
+                  </div>
+                  <span id="footprint-plastic-val" class="footprint-val">+0.00 kg Atık</span>
+                  <span class="footprint-ref">Arı & Öğüt (2021) // Ambalaj & Lifler</span>
+                </div>
+                <div class="footprint-box">
+                  <div class="footprint-top">
+                    <span class="footprint-icon">💧</span>
+                    <span class="footprint-label">SANAL SU AYAK İZİ</span>
+                  </div>
+                  <span id="footprint-water-val" class="footprint-val">+0 L Su</span>
+                  <span class="footprint-ref">Sevgili & Pekacar (2024) // Hızlı Moda & Tüketim</span>
+                </div>
+              </div>
+              <div id="footprint-verdict-text" class="footprint-verdict-box">
+                Hesaplanıyor...
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="ending-actions-grid">
+          <button id="btn-open-flowchart" class="btn-action">
+            <span>🌿 Karar Ağacı & Bilimsel İnceleme</span>
+          </button>
+          <button id="btn-restart-game" class="btn-action btn-restart">
+            <span>↺ Yeniden Oyna (Farklı Bir Gelecek)</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL 1: DUAL-MODE FLOWCHART & DECISION TREE -->
+  <div id="modal-flowchart" class="app-modal" role="dialog" aria-modal="true" aria-labelledby="flowchart-title">
+    <div class="modal-backdrop"></div>
+    <div class="modal-window modal-window-wide glass-panel">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span>🌿</span>
+          <h2 id="flowchart-title">KARAR AĞACI & BİLİMSEL İNCELEME</h2>
+        </div>
+        <div class="flowchart-mode-tabs">
+          <button id="tab-mode-graph" class="tab-mode-btn active" title="Görsel Dallanma Düğüm Grafigi">
+            🌐 Görsel Düğüm Grafiği
+          </button>
+          <button id="tab-mode-list" class="tab-mode-btn" title="Kompakt Karar Geçmişi Listesi">
+            📋 Kompakt Liste
+          </button>
+        </div>
+        <button id="btn-close-flowchart" class="btn-modal-close" aria-label="Kapat">✕</button>
+      </div>
+
+      <div class="modal-body modal-flowchart-body">
+        
+        <!-- View 1: Interactive Node Graph with SVG Connections -->
+        <div id="flowchart-graph-view" class="flowchart-view-panel">
+          <p class="text-muted" style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 8px;">
+            Alınan kararlar yeşil çizgiyle işaretlenmiştir. Kilitli alternatifleri ve bilimsel dayanaklarını incelemek için düğümlere tıklayın:
+          </p>
+          
+          <div class="flowchart-wrapper">
+            <svg id="flowchart-svg-lines" class="flowchart-svg-canvas"></svg>
+            <div id="flowchart-grid" class="flowchart-grid">
+              <!-- Dynamically populated stages & decision nodes -->
+            </div>
+          </div>
+
+          <!-- Node Inspector Box -->
+          <div class="flowchart-inspector glass-panel-subtle">
+            <div class="inspector-header">
+              <span id="inspect-title" class="inspect-title">Düğüm Seçin</span>
+              <span id="inspect-stat" class="inspect-stat">Detaylar</span>
+            </div>
+            <p id="inspect-desc" class="inspect-desc">Karar dallarından birini seçerek kararın nedenlerini inceleyebilirsiniz.</p>
+            <div class="inspect-theory-container">
+              <span class="inspect-theory-tag">🔬 Bilimsel Kuramsal Dayanak:</span>
+              <p id="inspect-theory" class="inspect-theory-text">Ampirik literatür dayanağı burada listelenir.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- View 2: Compact Decision List -->
+        <div id="flowchart-list-view" class="flowchart-view-panel" style="display: none;">
+          <p class="text-muted" style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 12px;">
+            Bu simülasyon turunda verilen tüm kararlar, somut tüketim faturası ve mikro/makro dengeler:
+          </p>
+          <div id="flowchart-compact-list" class="history-list">
+            <!-- Dynamically populated list rows -->
+          </div>
+        </div>
+
+        <div style="margin-top: 14px; display: flex; justify-content: flex-end;">
+          <button id="btn-flowchart-restart" class="btn-prime">
+            <span>↺ YENİ GÜN VE TOHUMLA OYNA</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 2: ACADEMIC DOSSIER & CITATIONS (10 STUDIES) -->
+  <div id="modal-dossier" class="app-modal" role="dialog" aria-modal="true" aria-labelledby="dossier-title">
+    <div class="modal-backdrop"></div>
+    <div class="modal-window modal-window-wide glass-panel">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span>📖</span>
+          <div>
+            <h2 id="dossier-title">AKADEMİK DOSYA & PROJE KÜNYESİ</h2>
+            <div class="modal-subtitle">Üniversite Düzeyi "Yapay Zeka ve Tasarım" Vize Ödevi — 10 Hakemli Araştırma Temelli Simülasyon</div>
+          </div>
+        </div>
+        <button id="btn-close-dossier" class="btn-modal-close" aria-label="Kapat">✕</button>
+      </div>
+
+      <div class="modal-body modal-dossier-body">
+        <div class="dossier-manifesto-box glass-panel-subtle">
+          <div class="manifesto-title">🎓 Pedagojik Çerçeve & Karar Mimarisi Bildirgesi</div>
+          <p class="manifesto-text">
+            Bu proje, İdil & Koçak (2024) tarafından ortaya konan <em>"Ciddi Oyunların Çevre Pedagojisindeki Rolü"</em> ve Yürük & Sadioğlu (2024) 
+            <em>"Dürtme (Nudge) Teorisi"</em> ampirik bulguları çerçevesinde tasarlanmıştır. Oyuncuyu pasif bilgi okuyucusu yapmak yerine, 
+            mikro kararlarının 2035 kentsel eşiğini ve 2045 nihai ekolojik bilançosunu nasıl kümülatif olarak şekillendirdiğini göstererek 
+            derin sorumluluk bilinci oluşturur.
+          </p>
+        </div>
+
+        <div class="dossier-section-title">HAKEMLİ AKADEMİK KAYNAKLAR (APA 7 KÜNYELERİ & AMPİRİK DAYANAKLAR)</div>
+
+        <div id="dossier-studies-list" class="dossier-studies-grid">
+          <!-- Dynamically populated cards from academicData.js -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 3: ACHIEVEMENTS SHOWCASE -->
+  <div id="modal-achievements" class="app-modal" role="dialog" aria-modal="true" aria-labelledby="achievements-title">
+    <div class="modal-backdrop"></div>
+    <div class="modal-window glass-panel">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span>🏆</span>
+          <h2 id="achievements-title">GİZLİ BAŞARIMLAR (ACHIEVEMENTS)</h2>
+        </div>
+        <button id="btn-close-achievements" class="btn-modal-close" aria-label="Kapat">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="achievements-progress-bar">
+          <div class="achievements-progress-label">
+            <span id="achievements-text">0 / 10 BAŞARIM TAMAMLANDI</span>
+          </div>
+          <div class="achievements-track">
+            <div id="achievements-fill" class="achievements-fill" style="width: 0%;"></div>
+          </div>
+        </div>
+
+        <div id="achievements-grid" class="achievements-grid">
+          <!-- Populated dynamically with 10 achievements -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS (Pure Static ES Modules for Vercel Hobby Zero-Config Hosting) -->
+  <script type="module" src="/src/audio.js"></script>
+  <script type="module" src="/src/academicData.js"></script>
+  <script type="module" src="/src/scenarios.js"></script>
+  <script type="module" src="/src/game.js"></script>
+</body>
+</html>

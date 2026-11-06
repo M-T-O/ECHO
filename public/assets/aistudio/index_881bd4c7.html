@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YANKI (ECHO): 2045'e 5 Dakika — Sosyal Farkındalık Simülatörü</title>
+  <meta name="description" content="Gündelik alışkanlıklarımızın 2045 yılındaki ekolojik ve toplumsal yankısını deneyimleyin. We Become What We Behold ve Detroit: Become Human esintili karar oyunu.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- BACKGROUND SVG SCENE STAGE (100% Code-Based Vector Art) -->
+  <div id="stage-visuals" class="stage-container" aria-hidden="true">
+    
+    <!-- 0. INTRO SCENE SVG -->
+    <div id="svg-intro" class="svg-scene-container active">
+      <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" class="scene-svg">
+        <defs>
+          <radialGradient id="intro-glow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#143147" stop-opacity="0.8"/>
+            <stop offset="60%" stop-color="#0a121e" stop-opacity="0.95"/>
+            <stop offset="100%" stop-color="#04070c" stop-opacity="1"/>
+          </radialGradient>
+          <linearGradient id="orbit-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.6"/>
+            <stop offset="100%" stop-color="#7000ff" stop-opacity="0.1"/>
+          </linearGradient>
+        </defs>
+        <rect width="1200" height="800" fill="url(#intro-glow)"/>
+        
+        <!-- Subtle Grid & Stars -->
+        <g opacity="0.15">
+          <line x1="0" y1="200" x2="1200" y2="200" stroke="#00f0ff" stroke-width="1" stroke-dasharray="4,8"/>
+          <line x1="0" y1="400" x2="1200" y2="400" stroke="#00f0ff" stroke-width="1" stroke-dasharray="4,8"/>
+          <line x1="0" y1="600" x2="1200" y2="600" stroke="#00f0ff" stroke-width="1" stroke-dasharray="4,8"/>
+          <line x1="300" y1="0" x2="300" y2="800" stroke="#00f0ff" stroke-width="1" stroke-dasharray="4,8"/>
+          <line x1="600" y1="0" x2="600" y2="800" stroke="#00f0ff" stroke-width="1" stroke-dasharray="4,8"/>
+          <line x1="900" y1="0" x2="900" y2="800" stroke="#00f0ff" stroke-width="1" stroke-dasharray="4,8"/>
+        </g>
+
+        <!-- Stylized Globe / Time Capsule Vector -->
+        <g transform="translate(600, 400)">
+          <circle r="180" fill="none" stroke="#00f0ff" stroke-width="1.5" stroke-opacity="0.4" class="anim-spin-slow"/>
+          <circle r="230" fill="none" stroke="#38ef7d" stroke-width="1" stroke-opacity="0.25" stroke-dasharray="6,12" class="anim-spin-reverse"/>
+          <ellipse rx="180" ry="60" fill="none" stroke="#00f0ff" stroke-width="1" stroke-opacity="0.3" transform="rotate(-25)"/>
+          <ellipse rx="180" ry="60" fill="none" stroke="#00f0ff" stroke-width="1" stroke-opacity="0.3" transform="rotate(65)"/>
+          <circle r="6" fill="#00f0ff" class="anim-pulse"/>
+          
+          <!-- Concentric Ring Echoes -->
+          <circle r="80" fill="none" stroke="#ffffff" stroke-width="1" stroke-opacity="0.1"/>
+          <circle r="130" fill="none" stroke="#ffffff" stroke-width="1" stroke-opacity="0.08"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- 1. MORNING SCENE SVG (07:30 - Sunrise, modern city skyline, traffic) -->
+    <div id="svg-morning" class="svg-scene-container">
+      <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" class="scene-svg">
+        <defs>
+          <linearGradient id="morning-sky" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#1a1c2e"/>
+            <stop offset="50%" stop-color="#2d3250"/>
+            <stop offset="85%" stop-color="#f8b500"/>
+            <stop offset="100%" stop-color="#ff6e40"/>
+          </linearGradient>
+          <linearGradient id="sun-glow" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#fff275" stop-opacity="0.9"/>
+            <stop offset="100%" stop-color="#ff7b54" stop-opacity="0.1"/>
+          </linearGradient>
+        </defs>
+        <rect width="1200" height="800" fill="url(#morning-sky)"/>
+        
+        <!-- Rising Sun -->
+        <circle cx="600" cy="480" r="130" fill="url(#sun-glow)" class="anim-pulse"/>
+
+        <!-- Far Skyline (Dark Indigo Silhouettes) -->
+        <g fill="#16192b" opacity="0.8">
+          <rect x="100" y="320" width="60" height="400"/>
+          <polygon points="100,320 130,280 160,320"/>
+          <rect x="190" y="360" width="80" height="360"/>
+          <rect x="300" y="270" width="70" height="450"/>
+          <line x1="335" y1="270" x2="335" y2="230" stroke="#16192b" stroke-width="3"/>
+          <rect x="400" y="380" width="100" height="340"/>
+          <rect x="720" y="310" width="90" height="410"/>
+          <rect x="840" y="250" width="75" height="470"/>
+          <polygon points="840,250 877,200 915,250"/>
+          <rect x="940" y="350" width="60" height="370"/>
+          <rect x="1030" y="330" width="85" height="390"/>
+        </g>
+
+        <!-- Near Skyline (Crisp Silhouette with Window Lights) -->
+        <g fill="#0c0e17">
+          <rect x="40" y="420" width="110" height="380"/>
+          <rect x="180" y="350" width="95" height="450"/>
+          <!-- Windows -->
+          <rect x="195" y="380" width="8" height="12" fill="#ffd166" opacity="0.7"/>
+          <rect x="220" y="380" width="8" height="12" fill="#ffd166" opacity="0.9"/>
+          <rect x="245" y="420" width="8" height="12" fill="#ffd166" opacity="0.8"/>
+          
+          <rect x="310" y="430" width="130" height="370"/>
+          <rect x="480" y="390" width="110" height="410"/>
+          <rect x="620" y="410" width="100" height="390"/>
+          <rect x="750" y="330" width="120" height="470"/>
+          <!-- Antennas -->
+          <line x1="810" y1="330" x2="810" y2="270" stroke="#0c0e17" stroke-width="4"/>
+          <circle cx="810" cy="270" r="4" fill="#ff4757" class="anim-blink"/>
+          
+          <rect x="900" y="440" width="110" height="360"/>
+          <rect x="1040" y="370" width="120" height="430"/>
+        </g>
+
+        <!-- Street & Moving Vehicles (Vector Silhouettes) -->
+        <rect x="0" y="680" width="1200" height="120" fill="#08090f"/>
+        <line x1="0" y1="740" x2="1200" y2="740" stroke="#ffd166" stroke-width="3" stroke-dasharray="30,30" opacity="0.4"/>
+        
+        <!-- Taxi Vehicle Silhouette -->
+        <g transform="translate(320, 695)" class="anim-car-move">
+          <rect x="0" y="15" width="80" height="25" rx="5" fill="#f8b500"/>
+          <polygon points="15,15 25,2 55,2 65,15" fill="#222"/>
+          <rect x="35" y="-4" width="12" height="6" fill="#fff" stroke="#222" stroke-width="1"/>
+          <circle cx="18" cy="40" r="8" fill="#111"/>
+          <circle cx="62" cy="40" r="8" fill="#111"/>
+          <!-- Exhaust fumes -->
+          <ellipse cx="-10" cy="35" rx="8" ry="4" fill="#666" opacity="0.4" class="anim-puff"/>
+        </g>
+
+        <!-- Metro Entrance Symbol -->
+        <g transform="translate(980, 640)">
+          <circle cx="20" cy="20" r="18" fill="#00d2d3"/>
+          <text x="20" y="27" fill="#fff" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="20" text-anchor="middle">M</text>
+        </g>
+      </svg>
+    </div>
+
+    <!-- 2. AFTERNOON SCENE SVG (13:15 - Commercial district, billboards, logistics) -->
+    <div id="svg-afternoon" class="svg-scene-container">
+      <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" class="scene-svg">
+        <defs>
+          <linearGradient id="afternoon-sky" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#0f2027"/>
+            <stop offset="60%" stop-color="#203a43"/>
+            <stop offset="100%" stop-color="#2c5364"/>
+          </linearGradient>
+        </defs>
+        <rect width="1200" height="800" fill="url(#afternoon-sky)"/>
+        
+        <!-- High-rise Commercial Facades -->
+        <g fill="#111822">
+          <rect x="80" y="150" width="220" height="650"/>
+          <rect x="340" y="220" width="260" height="580"/>
+          <rect x="640" y="120" width="240" height="680"/>
+          <rect x="920" y="180" width="200" height="620"/>
+        </g>
+
+        <!-- Digital Glitch Billboard on Building -->
+        <g transform="translate(370, 260)">
+          <rect width="200" height="100" fill="#050505" stroke="#ff007f" stroke-width="3"/>
+          <text x="100" y="45" fill="#ff007f" font-family="'JetBrains Mono', monospace" font-size="16" font-weight="700" text-anchor="middle">⚡ SON 2 ADET!</text>
+          <text x="100" y="75" fill="#00f0ff" font-family="'Space Grotesk', sans-serif" font-size="14" text-anchor="middle">AYNI GÜN 3 SAATTE</text>
+        </g>
+
+        <!-- Local Tailor / Repair Silhouette Sign -->
+        <g transform="translate(680, 480)">
+          <rect width="160" height="50" fill="#1b2a26" stroke="#38ef7d" stroke-width="2"/>
+          <text x="80" y="32" fill="#38ef7d" font-family="'Space Grotesk', sans-serif" font-size="13" font-weight="600" text-anchor="middle">✂ ONARIM & TERZİ</text>
+        </g>
+
+        <!-- Delivery Motorcycle Courier with Exhaust -->
+        <g transform="translate(520, 680)" class="anim-courier">
+          <polygon points="10,20 30,5 50,5 60,20" fill="#ff4757"/>
+          <circle cx="15" cy="30" r="10" fill="#111"/>
+          <circle cx="55" cy="30" r="10" fill="#111"/>
+          <!-- Delivery box on back -->
+          <rect x="2" y="-2" width="24" height="22" fill="#ffd32a" stroke="#333" stroke-width="1"/>
+          <text x="14" y="14" fill="#000" font-size="12" font-weight="bold" text-anchor="middle">📦</text>
+        </g>
+      </svg>
+    </div>
+
+    <!-- 3. NIGHT SCENE SVG (21:00 - Night city, glowing AC units, power pylons) -->
+    <div id="svg-night" class="svg-scene-container">
+      <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" class="scene-svg">
+        <defs>
+          <linearGradient id="night-sky" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#050811"/>
+            <stop offset="70%" stop-color="#0c1427"/>
+            <stop offset="100%" stop-color="#141c30"/>
+          </linearGradient>
+        </defs>
+        <rect width="1200" height="800" fill="url(#night-sky)"/>
+        
+        <!-- Crescent Moon -->
+        <g transform="translate(950, 120)">
+          <path d="M40 0 A 30 30 0 1 0 70 50 A 25 25 0 1 1 40 0 Z" fill="#e0e6ed" opacity="0.9"/>
+        </g>
+
+        <!-- Residential Block Silhouettes -->
+        <g fill="#090d16">
+          <rect x="120" y="260" width="300" height="540"/>
+          <rect x="460" y="200" width="320" height="600"/>
+          <rect x="820" y="310" width="280" height="490"/>
+        </g>
+
+        <!-- Glowing Windows & Spinning AC Fans -->
+        <!-- Room A (Freezing AC 18C - Cold Neon Blue) -->
+        <g transform="translate(500, 280)">
+          <rect width="90" height="60" fill="#00f0ff" opacity="0.85"/>
+          <!-- AC Unit on exterior ledge -->
+          <rect x="95" y="30" width="45" height="30" fill="#2d3436" stroke="#00f0ff" stroke-width="1"/>
+          <circle cx="117" cy="45" r="10" fill="none" stroke="#00f0ff" stroke-width="2" class="anim-fan-fast"/>
+          <!-- Hot exhaust air lines -->
+          <path d="M 145 40 Q 165 35, 175 42" stroke="#ff7675" stroke-width="2" fill="none" opacity="0.8" class="anim-wave"/>
+          <path d="M 145 50 Q 165 48, 175 56" stroke="#ff7675" stroke-width="2" fill="none" opacity="0.8" class="anim-wave"/>
+        </g>
+
+        <!-- Room B (Warm Natural Eco Window - Soft Amber Glow) -->
+        <g transform="translate(640, 420)">
+          <rect width="90" height="60" fill="#ffeaa7" opacity="0.75"/>
+          <!-- Open window shutter with plant pot -->
+          <rect x="15" y="10" width="25" height="45" fill="#1e272e" opacity="0.9"/>
+          <circle cx="75" cy="52" r="6" fill="#2ed573"/>
+          <!-- Gentle breeze curl -->
+          <path d="M 0 30 Q 15 20, 30 30 T 60 30" stroke="#7bed9f" stroke-width="1.5" fill="none" opacity="0.7" class="anim-breeze"/>
+        </g>
+
+        <!-- Electrical Power Transmission Pylon in Background -->
+        <g transform="translate(180, 460)" stroke="#3d4960" stroke-width="2" fill="none">
+          <line x1="50" y1="0" x2="20" y2="180"/>
+          <line x1="50" y1="0" x2="80" y2="180"/>
+          <line x1="10" y1="40" x2="90" y2="40"/>
+          <line x1="20" y1="90" x2="80" y2="90"/>
+          <line x1="30" y1="140" x2="70" y2="140"/>
+          <!-- Power Sparks -->
+          <circle cx="10" cy="40" r="3" fill="#00f0ff" class="anim-blink"/>
+          <circle cx="90" cy="40" r="3" fill="#00f0ff" class="anim-blink"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- 4. TIME LEAP SVG (2026 -> 2035 Glitch & Viewfinder Montage) -->
+    <div id="svg-timeleap" class="svg-scene-container">
+      <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" class="scene-svg">
+        <rect width="1200" height="800" fill="#0a0a0f"/>
+        
+        <!-- Viewfinder Brackets ("We Become What We Behold" Camera style) -->
+        <g stroke="#ffffff" stroke-width="3" fill="none" opacity="0.6">
+          <!-- Top Left -->
+          <path d="M 120 180 L 120 120 L 180 120"/>
+          <!-- Top Right -->
+          <path d="M 1020 120 L 1080 120 L 1080 180"/>
+          <!-- Bottom Left -->
+          <path d="M 120 620 L 120 680 L 180 680"/>
+          <!-- Bottom Right -->
+          <path d="M 1020 680 L 1080 680 L 1080 620"/>
+          
+          <!-- Center Reticle -->
+          <circle cx="600" cy="400" r="40" stroke="#00f0ff" stroke-width="2" stroke-dasharray="6,6"/>
+          <line x1="580" y1="400" x2="620" y2="400" stroke="#00f0ff" stroke-width="2"/>
+          <line x1="600" y1="380" x2="600" y2="420" stroke="#00f0ff" stroke-width="2"/>
+        </g>
+
+        <!-- Glitch scanlines -->
+        <line x1="0" y1="280" x2="1200" y2="280" stroke="#ff0055" stroke-width="2" opacity="0.5" class="anim-scanline"/>
+        <line x1="0" y1="520" x2="1200" y2="520" stroke="#00f0ff" stroke-width="2" opacity="0.5" class="anim-scanline"/>
+      </svg>
+    </div>
+
+    <!-- 5. ENDING A SVG (Plastik Şafak: Toxic Amber Smog, Gas Mask, Industrial Smoke) -->
+    <div id="svg-ending-a" class="svg-scene-container">
+      <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" class="scene-svg">
+        <defs>
+          <linearGradient id="toxic-sky" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#2c1802"/>
+            <stop offset="50%" stop-color="#5a3805"/>
+            <stop offset="85%" stop-color="#b06d12"/>
+            <stop offset="100%" stop-color="#e67e22"/>
+          </linearGradient>
+        </defs>
+        <rect width="1200" height="800" fill="url(#toxic-sky)"/>
+        
+        <!-- Industrial Smokestacks spewing soot -->
+        <g fill="#1a1105">
+          <polygon points="180,750 200,320 250,320 270,750"/>
+          <polygon points="280,750 295,260 340,260 355,750"/>
+          <polygon points="850,750 865,290 910,290 925,750"/>
+          <polygon points="940,750 955,340 995,340 1010,750"/>
+        </g>
+        
+        <!-- Billowing Toxic Smoke Puffs -->
+        <g fill="#2b1a0a" opacity="0.75" class="anim-smoke">
+          <circle cx="225" cy="270" r="45"/>
+          <circle cx="260" cy="230" r="60"/>
+          <circle cx="310" cy="180" r="85"/>
+          <circle cx="890" cy="240" r="55"/>
+          <circle cx="940" cy="190" r="75"/>
+        </g>
+
+        <!-- Dead Skeletal Tree -->
+        <g stroke="#0f0a03" stroke-width="5" fill="none" transform="translate(420, 480)">
+          <path d="M 40 250 L 40 100 Q 40 60, 10 20"/>
+          <path d="M 40 120 Q 70 80, 90 40"/>
+          <path d="M 20 40 L 0 10"/>
+          <path d="M 70 60 L 95 70"/>
+        </g>
+
+        <!-- Solitary Figure with Gas Mask Silhouette -->
+        <g transform="translate(680, 520)" fill="#0f0a03">
+          <ellipse cx="40" cy="35" rx="14" ry="18"/>
+          <!-- Mask snout & dual canister -->
+          <rect x="44" y="32" width="14" height="12" rx="3" fill="#ff793f"/>
+          <path d="M 26 55 C 20 90, 15 150, 15 220 L 65 220 C 65 150, 60 90, 54 55 Z"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- 6. ENDING B SVG (Tekno-Ayrışma: Glowing Neo Geodesic Bio-Dome & Outside Desert) -->
+    <div id="svg-ending-b" class="svg-scene-container">
+      <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" class="scene-svg">
+        <defs>
+          <linearGradient id="desert-sky" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#190e29"/>
+            <stop offset="60%" stop-color="#3d1e47"/>
+            <stop offset="100%" stop-color="#843b62"/>
+          </linearGradient>
+          <radialGradient id="dome-light" cx="50%" cy="80%" r="60%">
+            <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.5"/>
+            <stop offset="70%" stop-color="#7000ff" stop-opacity="0.2"/>
+            <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <rect width="1200" height="800" fill="url(#desert-sky)"/>
+
+        <!-- Outside Desert Dunes -->
+        <path d="M 0 680 Q 300 620, 600 690 T 1200 660 L 1200 800 L 0 800 Z" fill="#2d152a"/>
+        <path d="M 0 720 Q 400 680, 800 740 T 1200 710 L 1200 800 L 0 800 Z" fill="#1b0b1a"/>
+
+        <!-- Giant Geodesic Bio-Dome Silhouette -->
+        <g transform="translate(600, 700)">
+          <!-- Glowing interior -->
+          <path d="M -320 0 A 320 320 0 0 1 320 0 Z" fill="url(#dome-light)"/>
+          <path d="M -320 0 A 320 320 0 0 1 320 0 Z" fill="none" stroke="#00f0ff" stroke-width="3" opacity="0.8"/>
+          <!-- Geodesic Grid Facets -->
+          <g stroke="#00f0ff" stroke-width="1" opacity="0.3" fill="none">
+            <line x1="-320" y1="0" x2="0" y2="-320"/>
+            <line x1="320" y1="0" x2="0" y2="-320"/>
+            <line x1="-220" y1="0" x2="-100" y2="-280"/>
+            <line x1="220" y1="0" x2="100" y2="-280"/>
+            <line x1="-290" y1="-120" x2="290" y2="-120"/>
+            <line x1="-220" y1="-220" x2="220" y2="-220"/>
+          </g>
+
+          <!-- Gleaming Spire City inside Dome -->
+          <g fill="#0b1b2b" stroke="#00f0ff" stroke-width="0.5">
+            <rect x="-180" y="-190" width="45" height="190"/>
+            <rect x="-110" y="-260" width="55" height="260"/>
+            <rect x="-30" y="-290" width="60" height="290"/>
+            <polygon points="-30,-290 0,-330 30,-290"/>
+            <rect x="50" y="-230" width="50" height="230"/>
+            <rect x="120" y="-170" width="45" height="170"/>
+          </g>
+        </g>
+
+        <!-- Aerial Surveillance Drone with Spotlight -->
+        <g transform="translate(320, 260)" class="anim-float">
+          <ellipse cx="30" cy="15" rx="20" ry="8" fill="#111" stroke="#00f0ff" stroke-width="1.5"/>
+          <polygon points="30,23 0,180 80,180" fill="#00f0ff" opacity="0.15"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- 7. ENDING C SVG (Simbiyoz & Onarım: Lush Vertical Forests, Solar Canals, Flying Birds) -->
+    <div id="svg-ending-c" class="svg-scene-container">
+      <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" class="scene-svg">
+        <defs>
+          <linearGradient id="utopia-sky" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#0b3b43"/>
+            <stop offset="40%" stop-color="#146059"/>
+            <stop offset="80%" stop-color="#38ef7d"/>
+            <stop offset="100%" stop-color="#a8ff78"/>
+          </linearGradient>
+        </defs>
+        <rect width="1200" height="800" fill="url(#utopia-sky)"/>
+
+        <!-- Flock of Migratory Birds in Clean Sky -->
+        <g fill="none" stroke="#ffffff" stroke-width="2" opacity="0.85">
+          <path d="M 240 180 Q 248 170, 256 180 Q 264 170, 272 180"/>
+          <path d="M 280 150 Q 288 140, 296 150 Q 304 140, 312 150"/>
+          <path d="M 330 175 Q 338 165, 346 175 Q 354 165, 362 175"/>
+          <path d="M 380 140 Q 388 130, 396 140 Q 404 130, 412 140"/>
+        </g>
+
+        <!-- Vertical Forest High-Rises (Bosco Verticale Vector Style) -->
+        <g fill="#0b241d">
+          <rect x="140" y="260" width="130" height="490"/>
+          <rect x="330" y="180" width="150" height="570"/>
+          <rect x="740" y="220" width="140" height="530"/>
+          <rect x="940" y="280" width="120" height="470"/>
+        </g>
+
+        <!-- Hanging Foliage & Rooftop Trees (Vibrant Emerald / Mint Green) -->
+        <g fill="#2ed573">
+          <!-- Building 1 balconies -->
+          <circle cx="140" cy="300" r="16"/>
+          <circle cx="270" cy="340" r="18"/>
+          <circle cx="140" cy="420" r="20"/>
+          <circle cx="270" cy="460" r="18"/>
+          
+          <!-- Building 2 rooftop garden -->
+          <circle cx="360" cy="170" r="24"/>
+          <circle cx="410" cy="155" r="30"/>
+          <circle cx="460" cy="170" r="22"/>
+          <circle cx="330" cy="280" r="18"/>
+          <circle cx="480" cy="320" r="20"/>
+          <circle cx="330" cy="400" r="22"/>
+          <circle cx="480" cy="440" r="24"/>
+
+          <!-- Building 3 trees -->
+          <circle cx="770" cy="205" r="26"/>
+          <circle cx="830" cy="200" r="28"/>
+          <circle cx="740" cy="320" r="18"/>
+          <circle cx="880" cy="360" r="20"/>
+        </g>
+
+        <!-- Clean Shimmering Canal Water at Base -->
+        <rect x="0" y="700" width="1200" height="100" fill="#00cec9"/>
+        <line x1="0" y1="730" x2="1200" y2="730" stroke="#ffffff" stroke-width="2" stroke-dasharray="25,40" opacity="0.6"/>
+        <line x1="0" y1="760" x2="1200" y2="760" stroke="#ffffff" stroke-width="2" stroke-dasharray="40,25" opacity="0.4"/>
+      </svg>
+    </div>
+
+    <!-- 8. ENDING D SVG (Kırılgan Araf: Overcast Concrete Grey, Patchy Vegetation, Advisory Towers) -->
+    <div id="svg-ending-d" class="svg-scene-container">
+      <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" class="scene-svg">
+        <defs>
+          <linearGradient id="limbo-sky" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#1e272e"/>
+            <stop offset="50%" stop-color="#485460"/>
+            <stop offset="100%" stop-color="#808e9b"/>
+          </linearGradient>
+        </defs>
+        <rect width="1200" height="800" fill="url(#limbo-sky)"/>
+
+        <!-- Hazy Pale Sun -->
+        <circle cx="600" cy="260" r="60" fill="#d2dae2" opacity="0.3"/>
+
+        <!-- Grey Monolithic Buildings -->
+        <g fill="#2c3e50">
+          <rect x="180" y="320" width="120" height="480"/>
+          <rect x="360" y="270" width="140" height="530"/>
+          <rect x="700" y="300" width="130" height="500"/>
+          <rect x="890" y="350" width="120" height="450"/>
+        </g>
+
+        <!-- Blinking Amber Advisory Beacon Tower -->
+        <g transform="translate(560, 380)" stroke="#111" stroke-width="3" fill="none">
+          <line x1="40" y1="0" x2="15" y2="280"/>
+          <line x1="40" y1="0" x2="65" y2="280"/>
+          <circle cx="40" cy="0" r="7" fill="#ffa801" class="anim-blink"/>
+        </g>
+
+        <!-- Sparse Weeds on Cracked Concrete Floor -->
+        <rect x="0" y="720" width="1200" height="80" fill="#1e272e"/>
+        <g stroke="#ffa801" stroke-width="2" opacity="0.4">
+          <line x1="120" y1="740" x2="240" y2="760"/>
+          <line x1="400" y1="750" x2="520" y2="730"/>
+          <line x1="800" y1="735" x2="940" y2="770"/>
+        </g>
+      </svg>
+    </div>
+
+  </div>
+
+  <!-- HUD & STATUS OVERLAY (Minimalist Cinematic Aesthetic) -->
+  <header id="main-hud" class="hud-overlay">
+    <div class="hud-top-bar">
+      <div class="hud-brand">
+        <span class="hud-logo-icon">◈</span>
+        <span class="hud-title">YANKI: 2045'E 5 DAKİKA</span>
+      </div>
+
+      <div class="hud-status-group">
+        <div id="hud-seed-pill" class="hud-pill hud-pill-seed" title="Mevcut Oyun Tohumu">
+          <span class="pill-label">TOHUM:</span>
+          <span id="hud-seed-val" class="pill-val">#YANKI-7429</span>
+        </div>
+        <div id="hud-persona-pill" class="hud-pill hud-pill-persona">
+          <span class="pill-label">PERSPEKTİF:</span>
+          <span id="hud-persona" class="pill-val">KENTLİ ÇALIŞAN</span>
+        </div>
+        <div class="hud-pill">
+          <span class="pill-label">ZAMAN:</span>
+          <span id="hud-time" class="pill-val">2026.03.15 // 07:00</span>
+        </div>
+        <div class="hud-pill">
+          <span class="pill-label">STATÜ:</span>
+          <span id="hud-status" class="pill-val">BAŞLANGIÇ BEKLENİYOR</span>
+        </div>
+        <button id="btn-sound-toggle" class="btn-hud-icon" title="Sesi Aç/Kapat" aria-label="Sesi Aç/Kapat">
+          🔊 Ses: Açık
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN INTERACTIVE APP CONTAINER -->
+  <main id="app-container" class="app-main">
+
+    <!-- SCREEN 1: INTRO / START -->
+    <section id="screen-intro" class="screen-view active">
+      <div class="intro-dialog-box glass-panel">
+        <div class="intro-badge">SOSYAL FARKINDALIK SİMÜLATÖRÜ</div>
+        <h1 class="intro-headline">YANKI: 2045'E 5 DAKİKA</h1>
+        <p class="intro-tagline">"Gelecek uzak bir felaket değil; bugün attığın adımların 2045'teki yankısıdır."</p>
+
+        <div class="intro-lore">
+          <p>
+            Her sabah aceleyle aldığın tek kullanımlık bir karton kahve bardağı...
+            Ekrandan tek tıkla sipariş ettiğin aynı gün teslimatlı sentetik bir kıyafet...
+            Gece açık bıraktığın bir klima...
+          </p>
+          <p>
+            Küçük ve zararsız görünen gündelik konfor kararların, 2035 ve 2045 yıllarında küresel bir kelebek etkisi doğuracak.
+            Geleceğini gün boyu vereceğin kritik kararlarla sen şekillendireceksin.
+          </p>
+        </div>
+
+        <!-- SEED & PERSONA CONTROL PANEL -->
+        <div class="seed-control-panel glass-panel-subtle">
+          <div class="seed-info-group">
+            <span class="seed-icon">🎲</span>
+            <div class="seed-texts">
+              <span class="seed-label">GÜN TOHUMU (SEED):</span>
+              <span id="seed-code-val" class="seed-code">#YANKI-7429</span>
+            </div>
+          </div>
+          <div class="seed-actions">
+            <button id="btn-reroll-seed" class="btn-subtle" title="Yeni Bir Gün ve Karakter Zarı At">
+              🎲 Yeni Gün Zarı At
+            </button>
+            <button id="btn-custom-seed" class="btn-subtle" title="Tohum Kodu Gir">
+              ✎ Tohum Gir
+            </button>
+          </div>
+        </div>
+
+        <div class="intro-action-zone">
+          <button id="btn-start-game" class="btn-prime">
+            <span class="btn-glow"></span>
+            <span class="btn-text">ZAMAN KAPSÜLÜNÜ BAŞLAT ➔</span>
+          </button>
+          <div class="intro-hint">Klavye Kısayolları: Seçimler için [1] ve [2] tuşlarını kullanabilirsiniz.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 2: GAMEPLAY SCENE (Decision Point) -->
+    <section id="screen-game" class="screen-view">
+      <div class="scene-dialog-card glass-panel">
+        <div class="scene-header">
+          <span id="scene-act-tag" class="scene-step-tag">ACT 1 // 07:30</span>
+          <h2 id="scene-title" class="scene-title-text">Sabah Telaşı: Güne Başlarken</h2>
+        </div>
+
+        <p id="scene-narration" class="scene-narrative-text">
+          Alarm çaldı. Toplantıya sadece 25 dakika var. Şehir puslu bir sabah serinliğine gömülü...
+        </p>
+
+        <!-- Dual Choice Cards -->
+        <div class="choices-container">
+          <!-- Choice A -->
+          <button id="btn-choice-a" class="choice-card choice-a">
+            <div class="choice-key-badge">[1] / [A]</div>
+            <div class="choice-body">
+              <h3 id="choice-title-a" class="choice-title">Hızlı Çözüm: Kağıt Bardak + Taksi</h3>
+              <p id="choice-desc-a" class="choice-desc">Karton bardakta kahve kap, kapı önünden uygulama taksisine atla.</p>
+            </div>
+            <div class="choice-hover-border"></div>
+          </button>
+
+          <!-- Choice B -->
+          <button id="btn-choice-b" class="choice-card choice-b">
+            <div class="choice-key-badge">[2] / [B]</div>
+            <div class="choice-body">
+              <h3 id="choice-title-b" class="choice-title">Bilinçli Adım: Çelik Termos + Metro/Yürüyüş</h3>
+              <p id="choice-desc-b" class="choice-desc">Evde demlediğin kahve ile 10 dakikalık tempolu metro yürüyüşü.</p>
+            </div>
+            <div class="choice-hover-border"></div>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 3: TIME LEAP (We Become What We Behold Snapshot Montage) -->
+    <section id="screen-timeleap" class="screen-view">
+      <div class="timeleap-overlay">
+        <div class="timeleap-counter-box">
+          <span class="counter-label">ZAMAN SIÇRAMASI:</span>
+          <span id="timeleap-counter" class="counter-number">2026</span>
+        </div>
+
+        <div id="timeleap-cards" class="timeleap-cards-deck">
+          <!-- Dynamically populated snapshot newspaper cards -->
+        </div>
+
+        <div class="timeleap-controls">
+          <button id="btn-proceed-2045" class="btn-prime">
+            <span class="btn-text">2045 NİHAİ DÜNYASINA ADIM AT ➔</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 4: 2045 ENDING & EPILOGUE -->
+    <section id="screen-ending" class="screen-view">
+      <div class="ending-modal-card glass-panel">
+        <div id="ending-badge" class="ending-badge badge-danger">DİSTOPİK ÇÖKÜŞ</div>
+        <h2 id="ending-title" class="ending-title-text">PLASTİK ŞAFAK</h2>
+        <div id="ending-quote" class="ending-quote-text">"Konfor arayışımızın bedelini ciğerlerimizle ödüyoruz."</div>
+
+        <div class="ending-body-content">
+          <p id="ending-desc" class="ending-description">
+            Yıl 2045. Şehir artık nefes alınamaz bir sera...
+          </p>
+
+          <!-- 2045 FINAL LIFE & PLANET METRICS BALANCE SHEET -->
+          <div class="ending-metrics-card glass-panel-subtle">
+            <div class="ending-metrics-header">
+              <span class="metrics-badge">2045 NİHAİ YAŞAM VE GEZEGEN BİLANÇOSU</span>
+              <span class="metrics-sub">2026'daki gündelik kararlarının 2045 yılındaki somut bedeli</span>
+            </div>
+
+            <div class="ending-metrics-grid">
+              <!-- Metric 1: Eco Score -->
+              <div class="ending-metric-box">
+                <div class="metric-top-row">
+                  <span class="metric-name">🌿 EKOLOJİK BAKİYE</span>
+                  <span id="final-eco-val" class="metric-num">50%</span>
+                </div>
+                <div class="metric-bar-track">
+                  <div id="final-eco-bar" class="metric-bar-fill eco-fill" style="width: 50%;"></div>
+                </div>
+                <div id="final-eco-status" class="metric-verdict">Hesaplanıyor...</div>
+              </div>
+
+              <!-- Metric 2: Social Empathy -->
+              <div class="ending-metric-box">
+                <div class="metric-top-row">
+                  <span class="metric-name">🤝 KOLEKTİF EMPATİ</span>
+                  <span id="final-social-val" class="metric-num">50%</span>
+                </div>
+                <div class="metric-bar-track">
+                  <div id="final-social-bar" class="metric-bar-fill social-fill" style="width: 50%;"></div>
+                </div>
+                <div id="final-social-status" class="metric-verdict">Hesaplanıyor...</div>
+              </div>
+
+              <!-- Metric 3: Comfort Addiction -->
+              <div class="ending-metric-box">
+                <div class="metric-top-row">
+                  <span class="metric-name">⚡ KONFOR BAĞIMLILIĞI</span>
+                  <span id="final-comfort-val" class="metric-num">50%</span>
+                </div>
+                <div class="metric-bar-track">
+                  <div id="final-comfort-bar" class="metric-bar-fill comfort-fill" style="width: 50%;"></div>
+                </div>
+                <div id="final-comfort-status" class="metric-verdict">Hesaplanıyor...</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ending-actions-grid">
+          <button id="btn-open-flowchart" class="btn-action btn-flowchart">
+            <span class="btn-icon">🕸️</span>
+            <span>Dallanma Ağacı (Flowchart)</span>
+          </button>
+          <button id="btn-restart-game" class="btn-action btn-restart">
+            <span class="btn-icon">↺</span>
+            <span>Yeniden Oyna (Farklı Bir Gelecek)</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL: DETROIT: BECOME HUMAN STYLE INTERACTIVE FLOWCHART -->
+  <div id="modal-flowchart" class="app-modal" role="dialog" aria-modal="true" aria-labelledby="flowchart-title">
+    <div class="modal-backdrop"></div>
+    <div class="modal-window flowchart-window glass-panel">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="modal-icon">🕸️</span>
+          <h2 id="flowchart-title">KARAR VE DALLANMA AĞACI (FLOWCHART)</h2>
+        </div>
+        <button id="btn-close-flowchart" class="btn-modal-close" aria-label="Kapat">✕</button>
+      </div>
+
+      <div class="modal-body flowchart-body">
+        <div class="flowchart-legend">
+          <div class="legend-item"><span class="legend-dot active"></span> İzlediğiniz Patika</div>
+          <div class="legend-item"><span class="legend-dot locked"></span> Kilitli Alternatif Gelecek</div>
+        </div>
+
+        <!-- Rendered Node Graph -->
+        <div id="flowchart-canvas" class="flowchart-scroll-area">
+          <div class="flowchart-wrapper">
+            <svg id="flowchart-svg-lines" class="flowchart-svg-lines"></svg>
+            <div id="flowchart-grid" class="flowchart-grid"></div>
+          </div>
+        </div>
+
+        <!-- Node Inspector Panel -->
+        <div class="node-inspector glass-panel-subtle">
+          <div class="inspector-header">
+            <h4 id="inspect-title" class="inspect-title">Düğüm İncelemesi</h4>
+            <span id="inspect-stat" class="inspect-stat-pill">Rota Durumu</span>
+          </div>
+          <p id="inspect-desc" class="inspect-description">Detayları görmek için herhangi bir düğüme tıklayın.</p>
+        </div>
+
+        <!-- Flowchart Bottom Actions -->
+        <div class="flowchart-actions-footer">
+          <button id="btn-flowchart-restart" class="btn-prime">
+            <span class="btn-text">↺ FARKLI BİR GELECEK İNŞA ET (YENİDEN OYNA)</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING TOAST NOTIFICATION -->
+  <div id="toast-notification" class="toast-box" role="alert" aria-live="assertive"></div>
+
+  <!-- SCRIPTS -->
+  <script src="audio.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

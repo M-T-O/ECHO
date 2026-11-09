@@ -370,6 +370,7 @@
     const rng = createRng(hash);
 
     const pools = window.YANKI_SCENARIOS.SCENARIO_POOLS;
+    if (state.persona === 'craftsman') state.persona = 'teen';
     const pool = pools[state.persona] || pools.adult;
 
     const act1 = pool.act1[Math.floor(rng() * pool.act1.length)];
@@ -535,15 +536,15 @@
       headlines.push({
         year: '2031',
         tag: 'METROPOL HABERLERİ // DEMİRTÜRK (2021)',
-        title: isAdult ? 'MİKROPLASTİK SİSİ MERKEZLERİ ESİR ALDI' : (isStudent ? 'OKULLARDA DIŞ MEKAN MASKESİ ZORUNLU OLDU' : 'ONARILAMAYAN ELEKTRONİK HURDASI NEHİRLERİ TIKADI'),
+        title: isAdult ? 'MİKROPLASTİK SİSİ MERKEZLERİ ESİR ALDI' : (isStudent ? 'ÜNİVERSİTE KAMPÜSLERİNDE MASKELİ DÖNEM' : 'OKULLARDA DIŞ MEKAN MASKESİ VE DİJİTAL KARANTİNA'),
         body: 'Artan bireysel karayolu taşımacılığı (%74,5 küresel pay) ve ambalaj çılgınlığı kentsel partikül seviyesini rekor düzeye çıkardı. Hava kalitesi kırmızı alarmda.'
       });
     } else {
       headlines.push({
         year: '2031',
         tag: 'DÖNÜŞÜM RAPORU // GÜNGÖR (2023)',
-        title: isAdult ? 'ŞEHİR MERKEZLERİNDE YAYA VE MİKROMOBİLİTE DEVRİMİ' : (isStudent ? 'GENÇLERİN SIFIR ATIK HAREKETİ KENTLERİ DEĞİŞTİRDİ' : 'TAMİR ATÖLYELERİ VE ONARIM HAKKI YASALAŞTI'),
-        body: 'Bireysel araç kullanımındaki radikal gerileme ve mahalle onarım kooperatiflerinin yaygınlaşması, su havzalarındaki kirliliği %40 geri çekti.'
+        title: isAdult ? 'ŞEHİR MERKEZLERİNDE YAYA VE MİKROMOBİLİTE DEVRİMİ' : (isStudent ? 'GENÇLERİN SIFIR ATIK HAREKETİ KENTLERİ DEĞİŞTİRDİ' : 'OKULLARDA SIFIR ATIK VE BİSİKLETLİ ÖĞRENCİ REKORU'),
+        body: 'Bireysel araç kullanımındaki radikal gerileme ve okullarda başlayan sıfır atık / matara hareketleri su havzalarındaki kirliliği %40 geri çekti.'
       });
     }
 
@@ -833,7 +834,7 @@
 
     const startNode = {
       id: 'node-start',
-      title: `${state.persona === 'adult' ? 'Kentli Çalışan' : (state.persona === 'student' ? 'Öğrenci' : 'Zanaatkar')}`,
+      title: `${state.persona === 'adult' ? 'Kentli Çalışan' : (state.persona === 'student' ? 'Üniversite Öğrencisi' : 'Ortaokul Öğrencisi')}`,
       sub: `Tohum: ${state.seed}`,
       selected: true,
       stats: 'Başlangıç Noktası',

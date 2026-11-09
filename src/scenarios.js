@@ -632,310 +632,310 @@
     },
 
     // ==========================================
-    // PERSPECTIVE 3: MAHALLE ZANAATKARI (CRAFTSMAN)
+    // PERSPECTIVE 3: ORTAOKUL ÖĞRENCİSİ (TEEN / 12-15 YAŞ)
     // ==========================================
-    craftsman: {
-      personaId: 'craftsman',
-      personaTitle: 'MAHALLE ZANAATKARI',
-      personaRole: 'Elektronik & Mekanik Tamircisi, 48 Yaşında',
-      personaLore: 'Onarım hakkı, hurda dönüştürme, mahalle dayanışması ve tüketim çılgınlığına karşı direnç.',
-      avatarIcon: '🔧',
+    teen: {
+      personaId: 'teen',
+      personaTitle: 'ORTAOKUL ÖĞRENCİSİ',
+      personaRole: '8. Sınıf Öğrencisi, 13 Yaşında (LGS & Akran Dünyası)',
+      personaLore: 'Okul servisi, kantin abur cuburları, akran baskısı, TikTok/oyun trendleri ve sınav stresi arasında çevre bilinci.',
+      avatarIcon: '🎒',
 
-      // ACT 1: Şafak & Atölye Açılışı (06:45 - 07:30)
+      // ACT 1: Şafak & Okula Hazırlık (07:00 - 08:00)
       act1: [
         {
-          id: 'craft_act1_heater',
-          actTag: 'ACT 1 // 06:50',
-          timeLabel: '2026 // 06:50',
-          title: 'Şafak: Soğuk Atölye ve Paslı Kepenk',
-          svgId: 'svg-morning',
-          narration: 'Demir kepengi gıcırdayarak kaldırdın. Dükkanın içi taş gibi soğuk, ellerin tezgaha değer değmez donuyor. Bir saate ilk müşteri gelecek.',
-          choices: [
-            {
-              key: 'A',
-              title: '3 Gözlü Sanayi Rezistansını Yak',
-              desc: 'Tavandaki 3000W akkor çubukları yak. Dükkanı 5 dakikada kızıl bir cehenneme çevir ama saat gibi elektrik yazsın.',
-              metrics: { eco: -11, comfort: +12, social: -4 },
-              impact: { co2Kg: 3.2, plasticGrams: 0, waterLiters: 20 },
-              studyId: 'study_8_digital',
-              summary: 'Yüksek tüketimli sanayi ısıtıcısı sonuna kadar açıldı.'
-            },
-            {
-              key: 'B',
-              title: 'Talaş Sobasını Tutuştur & Çayı Demle',
-              desc: 'Marangoz komşudan aldığın pres talaş briketlerini döküm sobaya at, demliği üstüne koy, doğal ısıyla ısın.',
-              metrics: { eco: +11, comfort: -4, social: +7 },
-              impact: { co2Kg: 0.3, plasticGrams: 0, waterLiters: 10 },
-              studyId: 'study_6_circular',
-              summary: 'Atık talaş briketleriyle doğal döngüsel ısınma tercih edildi.'
-            }
-          ]
-        },
-        {
-          id: 'craft_act1_breakfast',
+          id: 'teen_act1_commute',
           actTag: 'ACT 1 // 07:15',
           timeLabel: '2026 // 07:15',
-          title: 'Şafak: Çırak Gelmeden Sabah Atıştırmalığı',
+          title: 'Sabah: Okula Gidiş ve Servis İkilemi',
           svgId: 'svg-morning',
-          narration: 'Tezgahın üstünü toplarken miden kazındı. Karşı caddede süpermarket zinciri, köşede ise odun fırını var.',
+          narration: 'Alarm çaldı, sırt çantan hazır. Yağmur çiseliyor ve ilk ders LGS deneme sınavı var. Baban arabayla işe gitmek üzere anahtarı aldı.',
           choices: [
             {
               key: 'A',
-              title: 'Süpermarketten Plastik Ambalajlı Kek & İçecek',
-              desc: 'Poşete doldurup tezgah kenarında 3 dakikada ye, ambalajı doğrudan çöp kovasına savur.',
-              metrics: { eco: -10, comfort: +10, social: -5 },
-              impact: { co2Kg: 1.3, plasticGrams: 65, waterLiters: 240 },
-              studyId: 'study_5_microplastics',
-              summary: 'Tek kullanımlık plastik ambalajlı fabrika gıdası tüketildi.'
+              title: 'Babana Israr Et: "Beni Okulun Kapısına Bırak"',
+              desc: 'Sıcak koltukta konforla git, okul kapısındaki araç kuyruğuna katıl ve egzoz dumanı bırak.',
+              metrics: { eco: -11, comfort: +12, social: -4 },
+              impact: { co2Kg: 3.4, plasticGrams: 0, waterLiters: 15 },
+              studyId: 'study_3_transport',
+              summary: 'Bireysel karayolu taşıtıyla okula bırakılma tercih edildi (+3.4 kg CO2).'
             },
             {
               key: 'B',
-              title: 'Fırından Sıcak Çıtır Simit & Bez Çanta',
-              desc: 'Köşedeki fırıncıya selam ver, dünden kalan peynirle çıtır simidi tezgahta çayla bölüş.',
-              metrics: { eco: +11, comfort: -3, social: +8 },
-              impact: { co2Kg: 0.1, plasticGrams: 0, waterLiters: 30 },
-              studyId: 'study_7_food_waste',
-              summary: 'Mahalle fırınından ambalajsız yerel kahvaltı yapıldı.'
+              title: 'Yağmurluğunu Giy: Arkadaşlarla Servise Bin & Yürü',
+              desc: 'Servis durağına yürü, arkadaşlarınla sohbet ederek toplu taşıma bilinciyle okula ulaş.',
+              metrics: { eco: +12, comfort: -4, social: +8 },
+              impact: { co2Kg: 0.2, plasticGrams: 0, waterLiters: 5 },
+              studyId: 'study_3_transport',
+              summary: 'Toplu servis ve yürüyüşle düşük karbonlu ulaşım seçildi.'
+            }
+          ]
+        },
+        {
+          id: 'teen_act1_water',
+          actTag: 'ACT 1 // 07:45',
+          timeLabel: '2026 // 07:45',
+          title: 'Sabah: Beslenme ve Su İhtiyacı',
+          svgId: 'svg-morning',
+          narration: 'Ayakkabılarını bağlarken mutfaktaki çelik mataranı unuttuğunu fark ettin. Geri dönmek 2 dakika kaybettirecek.',
+          choices: [
+            {
+              key: 'A',
+              title: '"Kantinden 2 Pet Şişe Su Alırım" Deyip Koş',
+              desc: 'Boşver, teneffüste kantinden tek kullanımlık plastik şişede su ve pipetli meyve suyu alırsın.',
+              metrics: { eco: -10, comfort: +10, social: -5 },
+              impact: { co2Kg: 0.8, plasticGrams: 65, waterLiters: 90 },
+              studyId: 'study_5_microplastics',
+              summary: 'Tek kullanımlık pet şişeler tercih edildi (Mikroplastik yükü).'
+            },
+            {
+              key: 'B',
+              title: 'Geri Dön: Çelik Matarayı Doldur ve Çantana At',
+              desc: '2 dakika harca, evdeki filtrelenmiş suyu çelik matarana doldur, plastik atık üretme.',
+              metrics: { eco: +11, comfort: -3, social: +6 },
+              impact: { co2Kg: 0.05, plasticGrams: 0, waterLiters: 5 },
+              studyId: 'study_5_microplastics',
+              summary: 'Yeniden kullanılabilir çelik matara ile sıfır plastik atık sağlandı.'
             }
           ]
         }
       ],
 
-      // ACT 2: Sabah Mesaisi & Yedek Parça İkilemi (09:00 - 11:30)
+      // ACT 2: Kuşluk Vakti & Teneffüs (10:00 - 11:30)
       act2: [
         {
-          id: 'craft_act2_parts',
-          actTag: 'ACT 2 // 09:45',
-          timeLabel: '2026 // 09:45',
-          title: 'Kuşluk Vakti: Yanmış Mikroçip ve Yedek Parça',
+          id: 'teen_act2_canteen',
+          actTag: 'ACT 2 // 10:15',
+          timeLabel: '2026 // 10:15',
+          title: 'Kuşluk Vakti: Büyük Teneffüs ve Kantin Kuyruğu',
           svgId: 'svg-morning',
-          narration: 'Bir komşu teyzenin 12 yıllık emektar dikiş makinesinin motor sürücüsü yanmış. Piyasa "bu modelin parçası yok, çöpe at" diyor.',
+          narration: 'Zil çaldı. 20 dakikalık teneffüs. Arkadaş grubun kantine hücum ediyor. Masanda annenin hazırladığı cevizli ve peynirli ev sandviçi duruyor.',
           choices: [
             {
               key: 'A',
-              title: 'Teyzeye "Yenisini Alın" Deyip İade Et',
-              desc: 'Uğraşmaya değmez; internetten 3 bin liraya yeni nesil plastik gövdeli bir makine almasını tavsiye et.',
-              metrics: { eco: -12, comfort: +10, social: -8 },
-              impact: { co2Kg: 14.5, plasticGrams: 650, waterLiters: 1450 },
-              studyId: 'study_6_circular',
-              summary: 'Onarım yerine doğrudan yeni ürün tüketimi önerildi (Hammadde israfı).'
+              title: 'Ev Sandviçini Gizle: Kantinden Cips ve Çikolata Al',
+              desc: 'Arkadaşlarının yanında "ev yemeği" açmaktan çekin, parlak metalize ambalajlı cips ve gazoz al.',
+              metrics: { eco: -11, comfort: +10, social: -6 },
+              impact: { co2Kg: 1.5, plasticGrams: 80, waterLiters: 320 },
+              studyId: 'study_7_food_waste',
+              summary: 'Akran baskısıyla ev yemeği israf edildi, paketli abur cubur alındı.'
             },
             {
               key: 'B',
-              title: 'Arka Depodaki Hurda Karttan Parça Sök',
-              desc: 'Lehim makinesini ısıt, raftaki eski hurda kartlardan uyumlu transistörü söküp lehimle, makineyi yaşat.',
-              metrics: { eco: +14, comfort: -5, social: +10 },
-              impact: { co2Kg: 0.2, plasticGrams: 5, waterLiters: 20 },
-              studyId: 'study_6_circular',
-              summary: 'Hurda karttan parça dönüştürülerek cihaz tamir edildi (%50 döngüsel kazanç).'
+              title: 'Sandviçi Çıkar: Arkadaşlarınla Bölüşerek Ye',
+              desc: 'Gülümseyerek sandviçi ikiye böl, kantin sırasına para ve plastik gömmek yerine arkadaşına ikram et.',
+              metrics: { eco: +12, comfort: -3, social: +10 },
+              impact: { co2Kg: 0.1, plasticGrams: 0, waterLiters: 20 },
+              studyId: 'study_7_food_waste',
+              summary: 'Ev gıdası paylaşıldı ve ambalaj atığı kaynağında engellendi.'
             }
           ]
         },
         {
-          id: 'craft_act2_cleaning',
-          actTag: 'ACT 2 // 10:30',
-          timeLabel: '2026 // 10:30',
-          title: 'Kuşluk Vakti: Dükkan Önü Temizliği',
+          id: 'teen_act2_stationery',
+          actTag: 'ACT 2 // 11:00',
+          timeLabel: '2026 // 11:00',
+          title: 'Kuşluk Vakti: Yırtılan Kalemlik Fermuarı',
           svgId: 'svg-morning',
-          narration: 'Atölyenin önündeki kaldırım taşları toz ve yağ lekesi olmuş. Karşı dükkan esnafı hortumu musluğa bağlamış tazikli suyla sokak yıkıyor.',
+          narration: 'Görsel Sanatlar dersinde kalem kutunun fermuarı koptu, boya kalemleri sıranın altına saçıldı. Arkadaşın: "TikTok\'taki ışıklı popüler kalemlikten sipariş etsene" diyor.',
           choices: [
             {
               key: 'A',
-              title: 'Hortumu Tak: Şebeke Suyuyla 20 Dakika Yıka',
-              desc: 'Tazikli şebeke suyuyla asfaltı pırıl pırıl yap, suyun mazgala akıp gitmesine aldırma.',
-              metrics: { eco: -11, comfort: +11, social: -6 },
-              impact: { co2Kg: 0.6, plasticGrams: 0, waterLiters: 350 },
-              studyId: 'study_7_food_waste',
-              summary: 'Tazikli şebeke suyuyla gereksiz kaldırım yıkandı (350 Litre su israfı).'
+              title: '"Bugün Sipariş Edelim": Trend Plastik Kalemlik Al',
+              desc: 'Eve gidince e-ticaret sitesinden aynı gün teslimatlı ucuz vinil kalemlik sipariş ettir.',
+              metrics: { eco: -10, comfort: +11, social: -5 },
+              impact: { co2Kg: 2.8, plasticGrams: 140, waterLiters: 480 },
+              studyId: 'study_4_fashion',
+              summary: 'Hızlı tüketim trendiyle yeni plastik kırtasiye sipariş edildi.'
             },
             {
               key: 'B',
-              title: 'Sert Çalı Süpürgesi ve Yağmur Suyu Kovası',
-              desc: 'Yağmur oluğundan doldurduğun kovayla tozu bastır, çalı süpürgesiyle 5 dakikada kuru süpür.',
-              metrics: { eco: +12, comfort: -4, social: +7 },
-              impact: { co2Kg: 0.05, plasticGrams: 0, waterLiters: 15 },
+              title: 'Güvenlik İğnesi ve İple Fermuarı Kendin Onar',
+              desc: 'Öğretmenden ataş ve iğne iste, fermuarı sağlamlaştırıp üzerine kendi çizdiğin çıkartmayı yapıştır.',
+              metrics: { eco: +13, comfort: -4, social: +8 },
+              impact: { co2Kg: 0.05, plasticGrams: 0, waterLiters: 10 },
               studyId: 'study_6_circular',
-              summary: 'Yağmur suyu ve süpürgeyle sıfır israflı temizlik yapıldı.'
+              summary: 'Küçük yaşta onarım ve dönüştürme kültürü uygulandı.'
             }
           ]
         }
       ],
 
-      // ACT 3: Öğle Molası & Çırak Eğitimi (12:30 - 14:00)
+      // ACT 3: Öğle Molası & Yemekhane (12:30 - 14:00)
       act3: [
         {
-          id: 'craft_act3_apprentice',
+          id: 'teen_act3_lunch',
           actTag: 'ACT 3 // 13:00',
           timeLabel: '2026 // 13:00',
-          title: 'Günün Ortası: Çırağa Verilecek Hayat Dersi',
+          title: 'Öğle Molası: Yemekhane Tabağı ve Kalan Ekmek',
           svgId: 'svg-afternoon',
-          narration: 'Meslek lisesinden gelen stajyer çırak Hasan, bükülen bakır boruları doğrudan moloz çuvalına atmaya kalktı. "Usta bunlarla kim uğraşacak?" diyor.',
+          narration: 'Okul yemekhanesinde günün menüsü: sebzeli güveç, pilav ve ayran. Masadaki arkadaşların tabaklarındaki sebzeleri yemeden doğrudan çöpe dökmeye yöneldi.',
           choices: [
             {
               key: 'A',
-              title: '"At Gitsin Hasan, Vaktimiz Yok"',
-              desc: 'Zaman nakittir; arkada biriken siparişleri yetiştirmek için atık ayırmaya vakit harcama.',
-              metrics: { eco: -10, comfort: +10, social: -6 },
-              impact: { co2Kg: 3.4, plasticGrams: 40, waterLiters: 180 },
-              studyId: 'study_6_circular',
-              summary: 'Hammadde ayrıştırması angarya görülerek çöpe atıldı.'
+              title: 'Tabağı Aynen Çöpe Bırak: "Ben de Sebze Sevmiyorum"',
+              desc: 'Çoğunluğa uy, tabağın yarısını çöp bidonuna dök ve boş mideni kantinden bisküviyle bastır.',
+              metrics: { eco: -12, comfort: +9, social: -7 },
+              impact: { co2Kg: 2.6, plasticGrams: 50, waterLiters: 650 },
+              studyId: 'study_7_food_waste',
+              summary: 'Yemekhane gıda israfı yapıldı (650 Litre sanal su kaybı).'
             },
             {
               key: 'B',
-              title: 'Hasan\'ı Yanına Çağır: Maden Ayrıştırmasını Öğret',
-              desc: 'Bakır, pirinç ve alüminyumu ayrı kutulara koydur. "Bu maden topraktan kolay çıkmıyor" diyerek bilinç aşıla.',
-              metrics: { eco: +13, comfort: -4, social: +10 },
-              impact: { co2Kg: 0.2, plasticGrams: 0, waterLiters: 20 },
+              title: 'Tabağını Bitir: "Gıda Çöp Değil" Deyip Örnek Ol',
+              desc: 'Porsiyonunu bitir, arkadaşlarına tarladan sofraya gelen emeği hatırlatarak israfı durdurmaya çalış.',
+              metrics: { eco: +13, comfort: -3, social: +9 },
+              impact: { co2Kg: 0.1, plasticGrams: 0, waterLiters: 15 },
               studyId: 'study_1_pedagogy',
-              summary: 'Gelecek nesle döngüsel hammadde ve maden bilinci aktarıldı.'
+              summary: 'Akranlara gıda tasarrufu ve saygısı konusunda rol model olundu.'
             }
           ]
         },
         {
-          id: 'craft_act3_lunch',
-          actTag: 'ACT 3 // 13:30',
-          timeLabel: '2026 // 13:30',
-          title: 'Günün Ortası: Sanayi Sitesinde Öğle Yemeği',
+          id: 'teen_act3_project',
+          actTag: 'ACT 3 // 13:45',
+          timeLabel: '2026 // 13:45',
+          title: 'Öğle Molası: Fen Bilgisi Proje Maketi',
           svgId: 'svg-afternoon',
-          narration: 'Öğle ezanı okundu. Sanayi çarşısında kurye motosikletleri naylon poşetlerde hamburger ve kebap dağıtıyor.',
+          narration: 'Fen Bilgisi dersinde yarın "Ekosistem Maketi" teslimi var. Grup arkadaşın: "Kırtasiyeden hazır strafor köpük ve plastik yapay ağaçlar alalım, hemen biter" diyor.',
           choices: [
             {
               key: 'A',
-              title: 'Kurye Çağır: Köpük Tabaklı Izgara Menü',
-              desc: 'Köpük tabak, plastik çatal ve teneke kutulu gazlı içecekle tezgaha oturup 10 dakikada karnını doyur.',
-              metrics: { eco: -10, comfort: +11, social: -5 },
-              impact: { co2Kg: 2.2, plasticGrams: 120, waterLiters: 420 },
+              title: 'Kırtasiyeden Strafor Köpük ve Plastik Figürler Al',
+              desc: 'Parayı ver, kolay yoldan strafor köpüğü kesip plastik maket hazırla; strafor tozları sınıfa saçılsın.',
+              metrics: { eco: -13, comfort: +12, social: -6 },
+              impact: { co2Kg: 4.5, plasticGrams: 320, waterLiters: 290 },
               studyId: 'study_5_microplastics',
-              summary: 'Köpük tabaklı hızlı ambalaj atığı üretildi.'
+              summary: 'Tek kullanımlık strafor köpük ve mikroplastik materyalleri tercih edildi.'
             },
             {
               key: 'B',
-              title: 'Çırakla Birlikte Komşu Esnaf Sofrasına Otur',
-              desc: 'Dükkanı komşuya emanet et; yandaki kuru fasulyecide cam sürahiden su içip çelik kaşıkla yemek ye.',
-              metrics: { eco: +12, comfort: -3, social: +9 },
-              impact: { co2Kg: 0.3, plasticGrams: 0, waterLiters: 90 },
-              studyId: 'study_6_circular',
-              summary: 'Yerel lokantada oturarak ambalajsız esnaf sofrası paylaşıldı.'
+              title: 'Evdeki Atık Karton Koli, Kozalak ve Kuru Dallar',
+              desc: 'Parktan dökülen dalları ve evdeki yumurta viyollerini topla, gerçek bir sıfır atık ekosistemi yarat.',
+              metrics: { eco: +14, comfort: -5, social: +10 },
+              impact: { co2Kg: 0.1, plasticGrams: 0, waterLiters: 10 },
+              studyId: 'study_1_pedagogy',
+              summary: 'Doğal biyobozunur atıklardan geri dönüştürülmüş bilim maketi yapıldı.'
             }
           ]
         }
       ],
 
-      // ACT 4: İkindi & Malzeme Tedariği (16:30 - 18:30)
+      // ACT 4: Okul Çıkışı & Akran Baskısı (16:30 - 18:30)
       act4: [
         {
-          id: 'craft_act4_cables',
+          id: 'teen_act4_trend',
           actTag: 'ACT 4 // 17:00',
           timeLabel: '2026 // 17:00',
-          title: 'İkindi: Kablo Bağlama ve Ambalaj Seçimi',
+          title: 'Okul Çıkışı: Yırtılan Sneaker ve Marka Çılgınlığı',
           svgId: 'svg-afternoon',
-          narration: 'Tamir ettiğin 8 adet elektrik motorunun kablolarını demetleyip paketlemen gerekiyor. Hırdavatçıda tek kullanımlık plastik cırt kelepçeler var.',
+          narration: 'Beden eğitimi maçında spor ayakkabının burun dikişi açıldı. Sınıftaki herkesin ayağında sosyal medyada viral olan 5 bin liralık sentetik yeni model sneaker var.',
           choices: [
             {
               key: 'A',
-              title: 'Tek Kullanımlık 100\'lü Plastik Kelepçe Paketi',
-              desc: 'Plastik kelepçeleri tak, fazlalıkları kesip yere fırlat; en hızlı ve pratik yöntem.',
-              metrics: { eco: -10, comfort: +10, social: -4 },
-              impact: { co2Kg: 0.8, plasticGrams: 90, waterLiters: 80 },
-              studyId: 'study_5_microplastics',
-              summary: 'Tek kullanımlık plastik cırt kelepçeler kullanıldı.'
+              title: '"Herkes Bunu Giyiyor!": Ailene Pahalı Sneaker Aldır',
+              desc: 'Ayakkabıyı köşeye fırlat, "bu halde okula gitmem" diyerek sentetik ve ağır su ayak izli yeni çift aldır.',
+              metrics: { eco: -13, comfort: +12, social: -8 },
+              impact: { co2Kg: 9.8, plasticGrams: 450, waterLiters: 2850 },
+              studyId: 'study_4_fashion',
+              summary: 'Akran baskısıyla yüksek su ve karbon ayak izli sentetik ayakkabı tüketildi.'
             },
             {
               key: 'B',
-              title: 'Doğal Kendir İpi ve Yeniden Açılabilir Klips',
-              desc: 'Depodaki jüt kendir ipini kullan; hem doğal çözünür hem de müşteri sökerken tekrar kullanabilir.',
-              metrics: { eco: +11, comfort: -3, social: +7 },
-              impact: { co2Kg: 0.1, plasticGrams: 0, waterLiters: 15 },
+              title: 'Mahalle Lostrasına Götür: Dikim ve Yeni Renkli Bağcık',
+              desc: 'Lostracı amcaya uğra, dikiş attır ve harçlığından 20 liraya fosforlu bağcık alarak kendi tarzını yarat.',
+              metrics: { eco: +14, comfort: -4, social: +9 },
+              impact: { co2Kg: 0.2, plasticGrams: 0, waterLiters: 25 },
               studyId: 'study_6_circular',
-              summary: 'Biyobozunur doğal jüt ipiyle çevre dostu paketleme yapıldı.'
+              summary: 'Tamir ettirilip özelleştirilerek 2.850 Litrelik su israfı kurtarıldı.'
             }
           ]
         },
         {
-          id: 'craft_act4_drill',
-          actTag: 'ACT 4 // 18:00',
-          timeLabel: '2026 // 18:00',
-          title: 'İkindi: Kırılan Matkap Gövdesi',
+          id: 'teen_act4_boba',
+          actTag: 'ACT 4 // 17:45',
+          timeLabel: '2026 // 17:45',
+          title: 'Okul Çıkışı: AVM ve Plastik Bardaklı İçecek',
           svgId: 'svg-afternoon',
-          narration: 'Tezgahtaki darbeli matkabın plastik tutma kolu yere düşüp çatladı. Yarın sabah acil bir montaj işi var.',
+          narration: 'Sınav çıkışı arkadaşlarınla AVM\'ye gittiniz. Herkes devasa plastik bardakta, kalın plastik pipetli şekerli soğuk çay/boba kuyruğunda.',
           choices: [
             {
               key: 'A',
-              title: 'İnternetten Yeni Matkap Sipariş Et (24 Saatte Kapıda)',
-              desc: 'Kredi kartını çıkar, eskisini hurda tenekesine fırlatıp en son model dijital matkabı al.',
-              metrics: { eco: -12, comfort: +12, social: -6 },
-              impact: { co2Kg: 12.0, plasticGrams: 480, waterLiters: 850 },
-              studyId: 'study_6_circular',
-              summary: 'Onarılabilir alet atılarak yenisi satın alındı.'
+              title: 'Kuyruğa Gir: Plastik Bardak ve Kalın Pipetle Al',
+              desc: 'Trend içeceği al, fotoğrafını çekip sosyal medyaya yükle, 10 dakika sonra kalın plastik bardağı çöpe at.',
+              metrics: { eco: -11, comfort: +11, social: -4 },
+              impact: { co2Kg: 1.8, plasticGrams: 110, waterLiters: 240 },
+              studyId: 'study_5_microplastics',
+              summary: 'Sosyal medya trendi için tek kullanımlık plastik bardak tüketildi.'
             },
             {
               key: 'B',
-              title: 'Kolu Alüminyum Saçtan Büküp Perçinle',
-              desc: 'Tezgahta bir saat mesaiye kal; alüminyum parçayı büküp matkaba perçinle, ömürlük bir alete dönüştür.',
-              metrics: { eco: +13, comfort: -5, social: +8 },
-              impact: { co2Kg: 0.3, plasticGrams: 0, waterLiters: 20 },
-              studyId: 'study_6_circular',
-              summary: 'El emeğiyle matkap güçlendirilerek sıfır tüketim sağlandı.'
+              title: 'Cam Bardaklı Yerel Çay Ocağına / Parka Davet Et',
+              desc: '"Parktaki çimenlere oturalım, bakkaldan cam şişe maden suyu içelim" diyerek arkadaş grubunu yönlendir.',
+              metrics: { eco: +12, comfort: -3, social: +10 },
+              impact: { co2Kg: 0.2, plasticGrams: 0, waterLiters: 20 },
+              studyId: 'study_2_nudge',
+              summary: 'Akran grubuna çevre dostu ve ambalajsız buluşma alternatifi sunuldu.'
             }
           ]
         }
       ],
 
-      // ACT 5: Yatsı & Atölye Kapanışı (20:00 - 22:30)
+      // ACT 5: Akşam & Gece Mesaisi (20:00 - 22:30)
       act5: [
         {
-          id: 'craft_act5_lights',
+          id: 'teen_act5_gaming',
           actTag: 'ACT 5 // 20:30',
           timeLabel: '2026 // 20:30',
-          title: 'Gece: Dükkan Vitrini ve Reklam Tabelası',
+          title: 'Gece: Online Oyun ve Bilgisayar Açık Kalması',
           svgId: 'svg-night',
-          narration: 'Kepengi kapatmak üzeresin. Karşı pasajdaki dükkanlar gece boyu reklam olsun diye 2000W dev projektörlerini ve neon tabelalarını sabaha kadar açık bırakıyor.',
+          narration: 'Saat 22:30. Yarın okul var. Bilgisayarında oynadığın online oyunda arkadaşların: "Hadi bir el daha, sabaha kadar yayındayız!" diye sesli sohbetten ısrar ediyor.',
           choices: [
             {
               key: 'A',
-              title: 'Projektörleri Açık Bırak: "Dükkan Dikkat Çeksin"',
-              desc: 'Gecenin karanlığında caddeyi aydınlat, sabaha kadar sayaç dönsün ama tabelan parlasın.',
-              metrics: { eco: -11, comfort: +11, social: -6 },
-              impact: { co2Kg: 3.1, plasticGrams: 0, waterLiters: 35 },
+              title: 'Sabaha Kadar Oyna, Ekranı ve RGB LED\'leri Açık Bırak',
+              desc: 'Oyun başından 02:30\'a kadar kalkma, tüm ışıkları ve güçlü ekran kartını sabaha kadar tam güç çalıştır.',
+              metrics: { eco: -12, comfort: +12, social: -7 },
+              impact: { co2Kg: 3.8, plasticGrams: 0, waterLiters: 35 },
               studyId: 'study_8_digital',
-              summary: 'Gece boyu gereksiz ticari vitrin ışıkları açık bırakıldı.'
+              summary: 'Gece boyu yüksek watt dijital oyun ve veri merkezi yükü üretildi.'
             },
             {
               key: 'B',
-              title: 'Ana Şalteri İndir: Karanlığın Huzuru',
-              desc: 'Tüm gereksiz fişleri çek, ana şalteri indir. "Gece kuşların ve yıldızlarındır" diyerek kepengi kilitle.',
-              metrics: { eco: +12, comfort: -3, social: +7 },
-              impact: { co2Kg: 0.05, plasticGrams: 0, waterLiters: 5 },
-              studyId: 'study_10_intergenerational',
-              summary: 'Gereksiz gece ışık kirliliği ve enerji tüketimi sıfırlandı.'
+              title: '"Yarın Görüşürüz" De: Bilgisayarı Kapat, Fişi Çek',
+              desc: 'Oyundan çık, ana prizin anahtarını kapat, derin ve dinlendirici bir uykuya geç.',
+              metrics: { eco: +12, comfort: -4, social: +7 },
+              impact: { co2Kg: 0.1, plasticGrams: 0, waterLiters: 5 },
+              studyId: 'study_8_digital',
+              summary: 'Dijital karbon ayak izi sıfırlandı, enerji tasarrufu sağlandı.'
             }
           ]
         },
         {
-          id: 'craft_act5_community',
+          id: 'teen_act5_tablet',
           actTag: 'ACT 5 // 21:15',
           timeLabel: '2026 // 21:15',
-          title: 'Gece: Mahalle Kahvesi mi, Yalnız Ekran mı?',
+          title: 'Gece: Yavaşlayan Tablet ve Yeni Cihaz Baskısı',
           svgId: 'svg-night',
-          narration: 'Dükkanı kilitledin. Yorgunluk dizlerinde. Köşedeki mahalle kahvesinden ıhlamur kokusu ve esnafın neşeli tavla sesleri geliyor.',
+          narration: 'Ders videolarını izlediğin 4 yıllık tabletin şarjı çabuk bitiyor ve uygulamalar bazen geç açılıyor. Reklamlarda en yeni yapay zekalı tablet parlıyor.',
           choices: [
             {
               key: 'A',
-              title: 'Eve Kaç: Kulaklığı Takıp Yalnız Kal',
-              desc: 'Kimseyle konuşacak mecalin yok; eve gir, kapıyı kilitle ve televizyonun mavi ışığına sığın.',
-              metrics: { eco: -9, comfort: +10, social: -7 },
-              impact: { co2Kg: 1.6, plasticGrams: 0, waterLiters: 40 },
-              studyId: 'study_8_digital',
-              summary: 'Toplumsal iletişimden kaçılarak bireysel izolasyon seçildi.'
+              title: 'Anne-Babaya Trip At: "Bana Yeni Tablet Alın"',
+              desc: 'Eski tableti çekmeceye kilitle, aileyi borca sokup fabrikadan yeni çıkan elektronik aygıt aldır.',
+              metrics: { eco: -14, comfort: +12, social: -9 },
+              impact: { co2Kg: 18.0, plasticGrams: 350, waterLiters: 1900 },
+              studyId: 'study_6_circular',
+              summary: 'Elektronik atık ve nadir metal tüketimi körüklendi (+18 kg CO2).'
             },
             {
               key: 'B',
-              title: 'Kahveye Uğra: Komşuların Halini Hatırını Sor',
-              desc: 'İçeri gir, marangoz Ahmet Usta ile bir bardak çay iç; mahallede kimin neye ihtiyacı var öğren.',
-              metrics: { eco: +10, comfort: -3, social: +11 },
-              impact: { co2Kg: 0.1, plasticGrams: 0, waterLiters: 15 },
-              studyId: 'study_2_nudge',
-              summary: 'Mahalle dayanışması ve esnaf birlikteliği güçlendirildi.'
+              title: 'Gereksiz Dosyaları Sil, Hafızayı Temizle ve Bataryayı Koru',
+              desc: 'Ayarlardan önbelleği boşalt, arka plan uygulamalarını kapat; tabletin ömrünü 2 yıl daha uzat.',
+              metrics: { eco: +14, comfort: -4, social: +8 },
+              impact: { co2Kg: 0.2, plasticGrams: 0, waterLiters: 15 },
+              studyId: 'study_6_circular',
+              summary: 'Mevcut cihazın ömrü optimize edilerek elektronik atık engellendi.'
             }
           ]
         }

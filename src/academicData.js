@@ -78,7 +78,7 @@
       volume: '3(1), 36–47',
       doi: '',
       finding: 'Döngüsel ekonomiye geçişte kaynak kullanımının azaltılması (%53) ve yeniden kullanım / onarım modelleri (%50) atık oluşumunu engellemede en yüksek kurumsal başarı faktörüdür.',
-      roleInGame: 'Ending C (Simbiyoz ve Onarım) ve Mahalle Zanaatkarı perspektifindeki hurda dönüştürme ve onarım pratikleri.'
+      roleInGame: 'Ending C (Simbiyoz ve Onarım) ve okullarda/mahallede eşyaları atmayıp onarma ve dönüştürme pratikleri.'
     },
     {
       id: 'study_7_food_waste',
